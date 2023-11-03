@@ -3,6 +3,7 @@ from .scraping import *
 from .utils import *
 
 from .course import Course
+from .course_req import CourseReq
 from .class_ import Class
 from .classroom import ClassRoom
 from .textbook import Textbook
@@ -14,6 +15,7 @@ __all__ = (
     *utils.__all__ ,
 
     'Course',
+    'CourseReq',
     'Class',
     'ClassRoom',
     'Textbook',

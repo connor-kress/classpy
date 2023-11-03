@@ -16,7 +16,7 @@ async def main() -> None:
         print(await course_query(browser, course_code='COP35'))
         # print(await course_query(browser, course_code='MAD'))
         # print(await course_query(browser, course_code='MAD', course_title='Computational'))
-        # print(await course_query(browser, term='2238', course_code='PHY2020'))
+        print(await course_query(browser, term='2238', course_code='PHY2020'))
 
         await browser.close()
 

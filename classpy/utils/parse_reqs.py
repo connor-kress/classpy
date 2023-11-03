@@ -1,6 +1,8 @@
 from typing import Optional
 import regex as re
 
+from ..course_req import CourseReq
+
 from .boolean import (
     BooleanExpr,
     BooleanToken,
@@ -23,16 +25,6 @@ REMOVABLE_TERMS = (
 
 CC_FIRST = re.compile(r'\b[A-Za-z]{3}\b')
 CC_WHOLE = re.compile(r'\b[A-Za-z]{3}\W?\d{4}[A-Za-z]?\b')
-
-test_strs = (
-    'MAC 2311 or MAC 3472, minimum grade of C.',
-    'high school algebra and trigonometry or the equivalent.',
-    '(MAC 2312 or MAC 2512 or MAC 3473) and (MAS 3300 or MHF 3202) with minimum grades of C.',
-    'MAS 3300 with a minimum grade of C or MHF 3202 with a minimum grade of C.',
-    'MAS 3114 or MAS 4105 with a minimum grade of C and experience with a scientific programming language.',
-    'MAA 4212, MAA 5105, or MAA 5229; and programming language.',
-    'MAD 7396.',
-)
 
 
 def _tokenize(req_str: str) -> list[str]:
@@ -115,12 +107,13 @@ def _parse_expr_from_tokens(tokens: list[str]) -> BooleanExpr:
     return expr
 
 
-def parse_course_reqs(req_str: str) -> tuple[Optional[BooleanExpr], Optional[str], Optional[str]]:
+def parse_course_reqs(req_str: str) -> CourseReq:
+    cleaned_str = req_str[:]
     for term in REMOVABLE_TERMS:
-        req_str = req_str.replace(term, '')
-    if not CC_WHOLE.search(req_str):
-        return None, None, None
-    tokens = _tokenize(req_str)
+        cleaned_str = cleaned_str.replace(term, '')
+    if not CC_WHOLE.search(cleaned_str):
+        return CourseReq(req_str, None, None, None)
+    tokens = _tokenize(cleaned_str)
     extra_and = None
     extra_or = None
     if len(tokens) > 2 and tokens[-2] == AND\
@@ -134,25 +127,10 @@ def parse_course_reqs(req_str: str) -> tuple[Optional[BooleanExpr], Optional[str
     if any(token not in ALL_TOKENS
            and not CC_WHOLE.search(token)
            for token in tokens):
-        return None, None, None
+        return CourseReq(req_str, None, None, None)
     try:
         boolean_expr = _parse_expr_from_tokens(tokens)
     except ValueError as e:
         # print(f'Error: {e}')
-        return None, None, None
-    return boolean_expr, extra_and, extra_or
-
-
-if __name__ == '__main__':
-    for string in test_strs:
-        print(string)
-        res = parse_course_reqs(string)
-        if res is None:
-            print('None Found')
-        else:
-            print((res[0]))
-            if res[1] is not None:
-                print(f'\tand {res[1]}')
-            if res[2] is not None:
-                print(f'\tor {res[2]}')
-        print()
+        return CourseReq(req_str, None, None, None)
+    return CourseReq(req_str, boolean_expr, extra_and, extra_or)

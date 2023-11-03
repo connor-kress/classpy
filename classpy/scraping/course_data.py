@@ -3,7 +3,7 @@ from playwright.async_api import (
     Browser,
     Locator,
 )
-from typing import Optional
+from typing import Optional, Any
 import asyncio
 
 from ..utils import (
@@ -14,19 +14,18 @@ from ..utils import (
 from ..course import Course
 from ..class_ import Class
 from ..classroom import ClassRoom
-from ..textbook import Textbook
 
 from .textbook_data import get_textbooks_from_link
 
 FALL_SPRING_PERIODS = 14
 SUMMER_PERIODS = 9
 DAY_OF_WEEK_DICT = {
-    'M': 1,
-    'T': 2,
-    'W': 3,
-    'R': 4,
-    'F': 5,
-    'S': 6,
+    'M': 0,
+    'T': 1,
+    'W': 2,
+    'R': 3,
+    'F': 4,
+    'S': 5,
 }
 FALL_SPRING_PERIOD_DICT = {
     '1': 0,
@@ -60,8 +59,6 @@ SOC_BASE = 'https://one.uf.edu/soc/'
 SS_PATH = r'C:\Users\con2c\Code\Comp. Math\Projects\classpy\classpy\data\images\{}.png'
 DEFAULT_CATEGORY = 'CWSP'
 DEFAULT_TERM = '2241'
-
-from playwright.sync_api import Playwright, sync_playwright, expect
 
 
 async def course_query(
@@ -140,12 +137,10 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
     ).split(' - ')
     description = await course_info.locator('//div[2]/p').text_content()
     prereq_str = await course_info.locator('//div[3]/p').text_content()
-    prereq_str = prereq_str.removeprefix('Prereq: ')
-    prereq_expr, prereq_extra_and, prereq_extra_or = (
-        parse_course_reqs(prereq_str)
-    )
+    requirements = parse_course_reqs(prereq_str.removeprefix('Prereq: '))
     classes_locator = course.locator('div.accordion__content > div')
-    await classes_locator.first.wait_for()
+    # await classes_locator.first.wait_for()
+    offset_data = await _scrape_course_class_offset(classes_locator.first)
     class_locators = await classes_locator.all()
     print(f'{title} found {len(class_locators)} classes')
     classes = await asyncio.gather(*[_scrape_class(browser, class_) for class_ in class_locators])
@@ -154,10 +149,10 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
         number=number,
         title=title,
         description=description,
-        prereq_str=prereq_str,
-        prereq_expr=prereq_expr,
-        prereq_extra_and=prereq_extra_and,
-        prereq_extra_or=prereq_extra_or,
+        requirements=requirements,
+        fees=offset_data['course_fees'],
+        EEP_eligable=offset_data['EEP_eligable'],
+        gen_ed=offset_data['gen_ed'],
         available_classes=classes,
     )
 
@@ -171,9 +166,7 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
         number = None
     box1 = class_.locator('//div[2]/div[1]')
     box2 = class_.locator('//div[2]/div[2]/div')
-    bsd_url = await box1.locator('a')\
-                        .filter(has_text="Textbooks")\
-                        .get_attribute('href')
+
     location_locators = box1.locator('//div[1]/div/div[1]')
     locations = await _scrape_locations(browser, location_locators)
     instructors = await box2.locator('//div[1]/div[2]/div/p')\
@@ -195,6 +188,9 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
                                 .text_content()
     class_dates = parse_class_dates(class_dates_str)
 
+    bsd_url = await box1.locator('a')\
+                        .filter(has_text="Textbooks")\
+                        .get_attribute('href')
     course_textbooks = await get_textbooks_from_link(browser, bsd_url)
 
     return Class(
@@ -209,6 +205,30 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
         locations=locations,
     )
 
+
+async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
+    box1 = first_class.locator('//div[2]/div[1]')
+    additionals = await box1.locator('//div[3]')\
+                            .get_by_role('button')\
+                            .all_text_contents()
+    course_fees = None
+    EEP_eligable = False
+    gen_ed = []
+    for additional in additionals:
+        if additional == 'EEP Eligible':
+            EEP_eligable = True
+        elif "Add'l Course Fees" in additional:
+            course_fees = float(additional.removeprefix("Add'l Course Fees: $"))
+        elif 'Gen Ed' in additional:
+            gen_ed.append(additional.removeprefix('Gen Ed: '))
+        else:
+            raise Exception(f'"{additional}" additional case not handled.')
+    
+    return {
+        'course_fees': course_fees,
+        'EEP_eligable': EEP_eligable,
+        'gen_ed': gen_ed,
+    }
 
 async def _scrape_locations(browser: Browser,
                             locations: Locator) -> list[list[ClassRoom]]:
