@@ -1,2 +1,0 @@
-class Test:
-    works = True
