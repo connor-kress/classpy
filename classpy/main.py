@@ -1,9 +1,7 @@
 import asyncio
 from playwright.async_api import async_playwright
-from classpy import course_query
+from classpy import *
 
-from classpy import Course, Class, Textbook, TextbookInfo, BooleanToken, BooleanAnd, BooleanOr
-import datetime
 
 async def main() -> None:
     async with async_playwright() as playwright:

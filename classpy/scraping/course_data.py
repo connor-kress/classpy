@@ -1,12 +1,12 @@
+import asyncio
 from playwright.async_api import (
     async_playwright,
     Browser,
     Locator,
 )
 from typing import Optional, Any
-import asyncio
 
-from ..utils import (
+from ..parsing import (
     parse_exam_time,
     parse_class_dates,
     parse_course_reqs,
@@ -177,7 +177,7 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
         case 'Online (100%)': is_online = True
         case 'Primarily Classroom': is_online = False
         case _: raise Exception('Unmatched case')
-    credits = int(await box2.locator('//div[3]/div[2]/div')
+    credits = int(await box2.locator('//div[3]/div[2]/div')  # TODO: move to course_class_offset
                             .text_content())
     department = await box2.locator('//div[4]/div[2]/div')\
                             .text_content()

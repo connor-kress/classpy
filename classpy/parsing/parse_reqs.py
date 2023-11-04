@@ -3,7 +3,7 @@ import regex as re
 
 from ..course_req import CourseReq
 
-from .boolean import (
+from ..utils import (
     BooleanExpr,
     BooleanToken,
     BooleanAnd,

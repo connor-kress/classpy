@@ -1,4 +1,5 @@
 from .data import *
+from .parsing import *
 from .scraping import *
 from .utils import *
 
@@ -11,6 +12,7 @@ from .textbook_info import TextbookInfo
 
 __all__ = (
     *data.__all__ ,
+    *parsing.__all__,
     *scraping.__all__ ,
     *utils.__all__ ,
 

@@ -1,6 +1,5 @@
-from playwright.async_api import Browser
 import asyncio
-from asyncio import Task
+from playwright.async_api import Browser
 
 from ..textbook_info import TextbookInfo
 from ..textbook import Textbook
@@ -28,7 +27,6 @@ async def _get_textbook_infos_from_link(browser: Browser, bsd_url: str) -> list[
 async def _get_textbook_from_info(browser: Browser, info: TextbookInfo) -> Textbook:
     if info in Textbook.link_cache:
         print(f'cache hit on {info.title}')
-        assert isinstance(Textbook.link_cache[info], Task)
         links = await Textbook.link_cache[info]
         return Textbook(info, links)
     links_task = asyncio.ensure_future(_get_links_from_info(browser, info))
