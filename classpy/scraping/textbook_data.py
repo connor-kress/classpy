@@ -13,7 +13,8 @@ async def get_textbooks_from_link(browser: Browser, bsd_url: str) -> list[Textbo
     
 
 
-async def _get_textbook_infos_from_link(browser: Browser, bsd_url: str) -> list[TextbookInfo]:
+async def _get_textbook_infos_from_link(browser: Browser,
+                                        bsd_url: str) -> list[TextbookInfo]:
     print(f'opening {bsd_url}')
     page = await browser.new_page()
     await page.goto(bsd_url)
@@ -21,7 +22,9 @@ async def _get_textbook_infos_from_link(browser: Browser, bsd_url: str) -> list[
     ...
 
     await page.close()
-    return [TextbookInfo('Diary of a Wimpy Kid', 'Jeff Kinney', '2836423')]
+    return [TextbookInfo(title='Diary of a Wimpy Kid',
+                         author='Jeff Kinney',
+                         isbn='2836423')]
 
 
 async def _get_textbook_from_info(browser: Browser, info: TextbookInfo) -> Textbook:

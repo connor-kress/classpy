@@ -1,24 +1,21 @@
 from typing import Optional, Self
+from dataclasses import dataclass
 
 
+@dataclass(kw_only=True)
 class TextbookInfo:
-    def __init__(
-        self,
-        title: Optional[str],
-        author: Optional[str],
-        isbn: Optional[str],
-    ) -> None:
-        for arg in (title, author, isbn):
-            assert isinstance(arg, Optional[str])
-        self.title = title
-        self.author = author
-        self.isbn = isbn
-    
-    def __repr__(self) -> str:
-        title_str = 'None' if self.title is None else f"'{self.title}'"
-        author_str = 'None' if self.author is None else f"'{self.author}'"
-        isbn_str = 'None' if self.isbn is None else f"'{self.isbn}'"
-        return f"{self.__class__.__name__}({title_str}, {author_str}, {isbn_str})"
+    title: Optional[str]
+    author: Optional[str]
+    isbn: Optional[str]
+
+    def __post_init__(self) -> None:
+        checks = (
+            isinstance(self.title, Optional[str]),
+            isinstance(self.author, Optional[str]),
+            isinstance(self.isbn, Optional[str]),
+        )
+        if not all(checks):
+            raise TypeError
 
     def __hash__(self) -> int:
         return hash((self.title, self.author, self.isbn))

@@ -1,4 +1,3 @@
-from typing import Self
 from asyncio import Task
 
 from .textbook_info import TextbookInfo

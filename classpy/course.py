@@ -1,48 +1,43 @@
 from typing import Optional
+from dataclasses import dataclass
 
-from .utils import BooleanExpr
 from .course_req import CourseReq
 from .class_ import Class
 
 
+@dataclass(kw_only=True)
 class Course:
-    def __init__(
-            self,
-            *,
-            number: str,
-            title: str,
-            description: str,
-            requirements: CourseReq,
-            fees: Optional[float],
-            EEP_eligable: bool,
-            gen_ed: list[str],
-            available_classes: list[Class],
-        ) -> None:
-        assert isinstance(number, str)
-        assert isinstance(title, str)
-        assert isinstance(description, str)
-        assert isinstance(requirements, CourseReq)
-        assert isinstance(fees, Optional[float])
-        assert isinstance(EEP_eligable, bool)
-        assert isinstance(gen_ed, list)
-        assert isinstance(available_classes, list)
-        self.number = number
-        self.title = title
-        self.description = description
-        self.requirements = requirements
-        self.fees = fees
-        self.EEP_eligable = EEP_eligable
-        self.gen_ed = gen_ed
-        self.available_classes = available_classes
+    number: str
+    title: str
+    description: str
+    requirements: CourseReq
+    fees: Optional[float]
+    EEP_eligable: bool
+    gen_ed: list[str]
+    available_classes: list[Class]
+
+    def __post_init__(self) -> None:
+        checks = (  
+            isinstance(self.number, str),
+            isinstance(self.title, str),
+            isinstance(self.description, str),
+            isinstance(self.requirements, CourseReq),
+            isinstance(self.fees, Optional[float]),
+            isinstance(self.EEP_eligable, bool),
+            isinstance(self.gen_ed, list),
+            isinstance(self.available_classes, list),
+        )
+        if not all(checks):
+            raise TypeError
     
-    def __repr__(self) -> str:
-        return f'''{self.__class__.__name__}(
-            number='{self.number}',
-            title='{self.title}',
-            description='{self.description}',
-            requirements={repr(self.requirements)},
-            fees={self.fees},
-            EEP_eligable={self.EEP_eligable},
-            gen_ed={self.gen_ed},
-            available_classes={self.available_classes},
-        )'''
+    # def __repr__(self) -> str:
+    #     return f'''{self.__class__.__name__}(
+    #         number={repr(self.number)},
+    #         title={repr(self.title)},
+    #         description={repr(self.description)},
+    #         requirements={repr(self.requirements)},
+    #         fees={repr(self.fees)},
+    #         EEP_eligable={repr(self.EEP_eligable)},
+    #         gen_ed={repr(self.gen_ed)},
+    #         available_classes={repr(self.available_classes)},
+    #     )'''
