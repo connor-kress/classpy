@@ -123,7 +123,7 @@ async def _course_query_raw(
     await courses_locator.nth(result_count-1).wait_for()
     # await page.screenshot(path=SS_PATH.format(query_info['course-code']))
     course_locators = await courses_locator.all()
-    courses = await asyncio.gather(*[_scrape_course(browser, course) for course in course_locators])
+    courses = await asyncio.gather(*(_scrape_course(browser, course) for course in course_locators))
     # courses = [await _scrape_course(browser, course) for course in course_locators]
 
     await page.close()
@@ -143,7 +143,7 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
     offset_data = await _scrape_course_class_offset(classes_locator.first)
     class_locators = await classes_locator.all()
     print(f'{title} found {len(class_locators)} classes')
-    classes = await asyncio.gather(*[_scrape_class(browser, class_) for class_ in class_locators])
+    classes = await asyncio.gather(*(_scrape_class(browser, class_) for class_ in class_locators))
     
     return Course(
         number=number,
@@ -153,6 +153,8 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
         fees=offset_data['course_fees'],
         EEP_eligable=offset_data['EEP_eligable'],
         gen_ed=offset_data['gen_ed'],
+        credits=offset_data['credits'],
+        department=offset_data['department'],
         available_classes=classes,
     )
 
@@ -177,10 +179,6 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
         case 'Online (100%)': is_online = True
         case 'Primarily Classroom': is_online = False
         case _: raise Exception('Unmatched case')
-    credits = int(await box2.locator('//div[3]/div[2]/div')  # TODO: move to course_class_offset
-                            .text_content())
-    department = await box2.locator('//div[4]/div[2]/div')\
-                            .text_content()
     exam_time_str = await box2.locator('//div[5]/div[2]/div')\
                                 .text_content()
     final_exam_time = parse_exam_time(exam_time_str)
@@ -197,8 +195,6 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
         number=number,
         instructors=instructors,
         is_online=is_online,
-        credits=credits,
-        department=department,
         final_exam_time=final_exam_time,
         class_dates=class_dates,
         textbooks=course_textbooks,
@@ -208,6 +204,7 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
 
 async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
     box1 = first_class.locator('//div[2]/div[1]')
+    box2 = first_class.locator('//div[2]/div[2]/div')
     additionals = await box1.locator('//div[3]')\
                             .get_by_role('button')\
                             .all_text_contents()
@@ -224,10 +221,17 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
         else:
             raise Exception(f'"{additional}" additional case not handled.')
     
+    credits = int(await box2.locator('//div[3]/div[2]/div')  # TODO: move to course_class_offset
+                            .text_content())
+    department = await box2.locator('//div[4]/div[2]/div')\
+                            .text_content()
+    
     return {
         'course_fees': course_fees,
         'EEP_eligable': EEP_eligable,
         'gen_ed': gen_ed,
+        'credits': credits,
+        'department': department,
     }
 
 async def _scrape_locations(browser: Browser,

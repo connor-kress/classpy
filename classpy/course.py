@@ -1,8 +1,9 @@
-from typing import Optional
 from dataclasses import dataclass
+from typing import Optional
 
 from .course_req import CourseReq
 from .class_ import Class
+from .utils import check_types
 
 
 @dataclass(kw_only=True)
@@ -14,30 +15,20 @@ class Course:
     fees: Optional[float]
     EEP_eligable: bool
     gen_ed: list[str]
+    credits: int
+    department: str
     available_classes: list[Class]
 
     def __post_init__(self) -> None:
-        checks = (  
-            isinstance(self.number, str),
-            isinstance(self.title, str),
-            isinstance(self.description, str),
-            isinstance(self.requirements, CourseReq),
-            isinstance(self.fees, Optional[float]),
-            isinstance(self.EEP_eligable, bool),
-            isinstance(self.gen_ed, list),
-            isinstance(self.available_classes, list),
+        check_types(
+            (self.number, str),
+            (self.title, str),
+            (self.description, str),
+            (self.requirements, CourseReq),
+            (self.fees, Optional[float]),
+            (self.EEP_eligable, bool),
+            (self.gen_ed, list),
+            (self.credits, int),
+            (self.department, str),
+            (self.available_classes, list),
         )
-        if not all(checks):
-            raise TypeError
-    
-    # def __repr__(self) -> str:
-    #     return f'''{self.__class__.__name__}(
-    #         number={repr(self.number)},
-    #         title={repr(self.title)},
-    #         description={repr(self.description)},
-    #         requirements={repr(self.requirements)},
-    #         fees={repr(self.fees)},
-    #         EEP_eligable={repr(self.EEP_eligable)},
-    #         gen_ed={repr(self.gen_ed)},
-    #         available_classes={repr(self.available_classes)},
-    #     )'''

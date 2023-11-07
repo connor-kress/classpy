@@ -18,6 +18,7 @@ ALL_TOKENS = (AND, OR, LEFT_P, RIGHT_P)
 
 REMOVABLE_TERMS = (
     '.', ',', ';', ':',
+    'all with a minimum grade of C',
     'with a minimum grade of C',
     'with minimum grades of C',
     'minimum grade of C',
@@ -108,7 +109,7 @@ def _parse_expr_from_tokens(tokens: list[str]) -> BooleanExpr:
 
 
 def parse_course_reqs(req_str: str) -> CourseReq:
-    cleaned_str = req_str[:]
+    cleaned_str = req_str[:]  # filter by last re match of course term (none = no expr)
     for term in REMOVABLE_TERMS:
         cleaned_str = cleaned_str.replace(term, '')
     if not CC_WHOLE.search(cleaned_str):

@@ -1,6 +1,8 @@
 from typing import Optional, Self
 from dataclasses import dataclass
 
+from .utils import check_types
+
 
 @dataclass(kw_only=True)
 class TextbookInfo:
@@ -9,17 +11,17 @@ class TextbookInfo:
     isbn: Optional[str]
 
     def __post_init__(self) -> None:
-        checks = (
-            isinstance(self.title, Optional[str]),
-            isinstance(self.author, Optional[str]),
-            isinstance(self.isbn, Optional[str]),
+        check_types(
+            (self.title, Optional[str]),
+            (self.author, Optional[str]),
+            (self.isbn, Optional[str]),
         )
-        if not all(checks):
-            raise TypeError
 
     def __hash__(self) -> int:
         return hash((self.title, self.author, self.isbn))
     
     def __eq__(self, other: Self) -> bool:
-        assert isinstance(other, self.__class__)
+        if not isinstance(other, self.__class__):
+            raise TypeError('`TextbookInfo`s can only be compared '
+                            'with other `TextbookInfo` instances.')
         return hash(self) == hash(other)
