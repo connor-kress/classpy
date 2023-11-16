@@ -1,7 +1,7 @@
 import asyncio
 from playwright.async_api import (
     async_playwright,
-    Browser,
+    BrowserContext,
     Locator,
 )
 from typing import Optional, Any
@@ -13,7 +13,8 @@ from ..parsing import (
 )
 from ..course import Course
 from ..class_ import Class
-from ..classroom import ClassRoom
+from ..locations import ClassRoom
+from ..data import get_building
 
 from .textbook_data import get_textbooks_from_link
 
@@ -62,7 +63,7 @@ DEFAULT_TERM = '2241'
 
 
 async def course_query(
-    browser: Optional[Browser] = None,
+    ctx: Optional[BrowserContext] = None,
     *,
     category: str = DEFAULT_CATEGORY,
     term: str = DEFAULT_TERM,
@@ -90,23 +91,26 @@ async def course_query(
         'prog-level': program_level,
         'dept': department,
     }
-    if browser is not None:
-        return await _course_query_raw(browser, query_info)
+    if ctx is not None:
+        return await _course_query_raw(ctx, query_info)
     
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch()
-        result = await _course_query_raw(browser, query_info)
+        ctx = await browser.new_context()
+        result = await _course_query_raw(ctx, query_info)
+        await ctx.close()
         await browser.close()
         return result
 
+
 async def _course_query_raw(
-    browser: Browser,
+    ctx: BrowserContext,
     query_info: dict[str, Optional[str]]
 ) -> list[Course]:
     soc_url = f'{SOC_BASE}?{'&'.join(f'{key}="{val}"'
                                     for key, val in query_info.items()
                                     if val is not None)}'
-    page = await browser.new_page()
+    page = await ctx.new_page()
     await page.goto(soc_url)
 
     courses_locator = page.locator('.accordion__container')
@@ -123,14 +127,14 @@ async def _course_query_raw(
     await courses_locator.nth(result_count-1).wait_for()
     # await page.screenshot(path=SS_PATH.format(query_info['course-code']))
     course_locators = await courses_locator.all()
-    courses = await asyncio.gather(*(_scrape_course(browser, course) for course in course_locators))
-    # courses = [await _scrape_course(browser, course) for course in course_locators]
+    courses = await asyncio.gather(*(_scrape_course(ctx, course) for course in course_locators))
+    # courses = [await _scrape_course(ctx, course) for course in course_locators]
 
     await page.close()
     return courses
 
 
-async def _scrape_course(browser: Browser, course: Locator) -> Course:
+async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
     course_info = course.locator('//div[1]/div[1]/div')
     number, title = (
         await course_info.locator('//div[1]/div/p').text_content()
@@ -143,7 +147,7 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
     offset_data = await _scrape_course_class_offset(classes_locator.first)
     class_locators = await classes_locator.all()
     print(f'{title} found {len(class_locators)} classes')
-    classes = await asyncio.gather(*(_scrape_class(browser, class_) for class_ in class_locators))
+    classes = await asyncio.gather(*(_scrape_class(ctx, class_) for class_ in class_locators))
     
     return Course(
         number=number,
@@ -159,7 +163,7 @@ async def _scrape_course(browser: Browser, course: Locator) -> Course:
     )
 
 
-async def _scrape_class(browser: Browser, class_: Locator) -> Class:
+async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
     number = (await class_.locator('div[role="button"]')
                             .first
                             .text_content()
@@ -170,7 +174,7 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
     box2 = class_.locator('//div[2]/div[2]/div')
 
     location_locators = box1.locator('//div[1]/div/div[1]')
-    locations = await _scrape_locations(browser, location_locators)
+    locations = await _scrape_locations(ctx, location_locators)
     instructors = await box2.locator('//div[1]/div[2]/div/p')\
                             .all_text_contents()
     is_online: bool
@@ -189,7 +193,7 @@ async def _scrape_class(browser: Browser, class_: Locator) -> Class:
     bsd_url = await box1.locator('a')\
                         .filter(has_text="Textbooks")\
                         .get_attribute('href')
-    course_textbooks = await get_textbooks_from_link(browser, bsd_url)
+    course_textbooks = await get_textbooks_from_link(ctx, bsd_url)
 
     return Class(
         number=number,
@@ -234,22 +238,19 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
         'department': department,
     }
 
-async def _scrape_locations(browser: Browser,
+async def _scrape_locations(ctx: BrowserContext,
                             locations: Locator) -> list[list[ClassRoom]]:
     days_ = await locations.locator('//div[1]/div[1]').all_text_contents()
     periods = await locations.locator('//div[1]/div[2]').all_text_contents()
-    room_locators =  locations.locator('//div[2]/div[1]/a')
-    rooms = await room_locators.all_text_contents()
-    links = await room_locators.all()
+    room_codes = await locations.locator('//div[2]/div[1]/a').all_text_contents()
     schedule = list(list(None for _ in range(FALL_SPRING_PERIODS))
                          for _ in range(len(DAY_OF_WEEK_DICT)))
-    for days, period, room, link in zip(days_, periods, rooms, links):
+    for days, period, room_code in zip(days_, periods, room_codes):
         days = days.removesuffix('\xa0|\xa0').split(',')
         period = period.removeprefix('Period ')\
                        .removeprefix('Periods ')\
                        .removesuffix('\xa0')
-        room = room.removesuffix('\xa0launch')
-        url = await link.get_attribute('href')
+        room_code = room_code.removesuffix('\xa0launch')
         day_idxs = tuple(DAY_OF_WEEK_DICT[day] for day in days)
         period_idxs: tuple[int]
         if '-' in period:
@@ -258,8 +259,14 @@ async def _scrape_locations(browser: Browser,
                                       FALL_SPRING_PERIOD_DICT[end]+1))
         else:
             period_idxs = (FALL_SPRING_PERIOD_DICT[period],)
+        building_abbrev, room_number = room_code.split(' ')
+        classroom = ClassRoom(
+            code=room_code,
+            number=room_number,
+            building=get_building(building_abbrev),
+        )
         for day_idx in day_idxs:
             for period_idx in period_idxs:
-                schedule[day_idx][period_idx] = ClassRoom(room, url)
+                schedule[day_idx][period_idx] = classroom
 
     return schedule
