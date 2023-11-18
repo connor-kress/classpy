@@ -4,8 +4,8 @@ import os
 from ..locations import Building, Coords
 
 ROOT = os.path.dirname(__file__)
-BUILDINGS_PATH = os.path.join(ROOT, '../data/buildings.json')
-BUS_STOPS_PATH = os.path.join(ROOT, '../data/bus_stops.json')
+BUILDINGS_PATH = os.path.join(ROOT, '..', 'data', 'buildings.json')
+BUS_STOPS_PATH = os.path.join(ROOT, '..', 'data', 'bus_stops.json')
 
 type BuildingDict = dict[str, str | float]
 

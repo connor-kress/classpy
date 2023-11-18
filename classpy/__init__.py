@@ -10,6 +10,11 @@ from .class_ import Class
 from .textbook import Textbook
 from .textbook_info import TextbookInfo
 
+from .class_functions import (
+    add_class_course_binding,
+    get_course_of,
+)
+
 __all__ = (
     *data.__all__ ,
     *locations.__all__,
@@ -22,4 +27,7 @@ __all__ = (
     'Class',
     'Textbook',
     'TextbookInfo',
+
+    'add_class_course_binding',
+    'get_course_of',
 )

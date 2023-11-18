@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Self
 
 from .locations import ClassRoom
 from .utils import check_types
@@ -15,7 +15,8 @@ class Class:
     final_exam_time: Optional[tuple[datetime, datetime]]
     class_dates: tuple[datetime, datetime]
     textbooks: list[Textbook]
-    locations: list[list[Optional[ClassRoom]]]
+    classrooms: set[ClassRoom]
+    locations: tuple[tuple[Optional[ClassRoom]]]
     
     def __post_init__(self) -> None:
         check_types(
@@ -25,5 +26,15 @@ class Class:
             (self.final_exam_time, Optional[tuple]),
             (self.class_dates, tuple),
             (self.textbooks, list),
-            (self.locations, list),
+            (self.classrooms, set),
+            (self.locations, tuple),
         )
+
+    def __hash__(self) -> int:
+        return hash((self.number, tuple(self.instructors), self.locations))
+
+    def __eq__(self, other: Self):
+        if not isinstance(other, self.__class__):
+            raise TypeError("`Class`' can only be compared "
+                            "with other `Class` instances.")
+        return hash(self) == hash(other)

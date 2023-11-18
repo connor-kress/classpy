@@ -7,16 +7,16 @@ from ..utils import check_types
 @dataclass
 class Coords:
     lat: float
-    long: float
+    lon: float
 
     def __post_init__(self) -> None:
         check_types(
             (self.lat, float),
-            (self.long, float),
+            (self.lon, float),
         )
     
     def __hash__(self) -> int:
-        return hash((self.lat, self.long))
+        return hash((self.lat, self.lon))
     
     def __eq__(self, other: Self):
         if not isinstance(other, self.__class__):

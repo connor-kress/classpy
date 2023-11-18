@@ -18,10 +18,10 @@ async def main() -> None:
     #     await ctx.close()
     #     await browser.close()
 
-    MAD2502 = (await course_query(course_code='MAD2502'))[0]
-    MAD_class = MAD2502.available_classes[0]
-    classroom = MAD_class.locations[0][4]
-    pprint.pprint(classroom)
+    course = (await course_query(course_title='Programming fundamentals 2'))[0]
+    for class_ in course.available_classes:
+        assert get_course_of(class_) is course
+    print(course)
 
 
 if __name__ == '__main__':

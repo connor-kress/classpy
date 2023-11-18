@@ -6,6 +6,12 @@ from playwright.async_api import (
 )
 from typing import Optional, Any
 
+from ..data import (
+    WEEK_DAYS,
+    FALL_SPRING_PERIODS,
+    DAY_OF_WEEK_DICT,
+    FALL_SPRING_PERIOD_DICT,
+)
 from ..parsing import (
     parse_exam_time,
     parse_class_dates,
@@ -18,43 +24,7 @@ from ..data import get_building
 
 from .textbook_data import get_textbooks_from_link
 
-FALL_SPRING_PERIODS = 14
-SUMMER_PERIODS = 9
-DAY_OF_WEEK_DICT = {
-    'M': 0,
-    'T': 1,
-    'W': 2,
-    'R': 3,
-    'F': 4,
-    'S': 5,
-}
-FALL_SPRING_PERIOD_DICT = {
-    '1': 0,
-    '2': 1,
-    '3': 2,
-    '4': 3,
-    '5': 4,
-    '6': 5,
-    '7': 6,
-    '8': 7,
-    '9': 8,
-    '10': 9,
-    '11': 10,
-    'E1': 11,
-    'E2': 12,
-    'E3': 13,
-}
-SUMMER_PERIOD_DICT = {
-    '1': 0,
-    '2': 1,
-    '3': 2,
-    '4': 3,
-    '5': 4,
-    '6': 5,
-    '7': 6,
-    'E1': 7,
-    'E2': 8,
-}
+from ..class_functions import add_class_course_binding
 
 SOC_BASE = 'https://one.uf.edu/soc/'
 SS_PATH = r'C:\Users\con2c\Code\Comp. Math\Projects\classpy\classpy\data\images\{}.png'
@@ -146,10 +116,9 @@ async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
     # await classes_locator.first.wait_for()
     offset_data = await _scrape_course_class_offset(classes_locator.first)
     class_locators = await classes_locator.all()
-    print(f'{title} found {len(class_locators)} classes')
+    print(f'Found {len(class_locators)} classes for {title}')
     classes = await asyncio.gather(*(_scrape_class(ctx, class_) for class_ in class_locators))
-    
-    return Course(
+    course = Course(
         number=number,
         title=title,
         description=description,
@@ -161,6 +130,9 @@ async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
         department=offset_data['department'],
         available_classes=classes,
     )
+    for class_ in classes:
+        add_class_course_binding(class_, course)
+    return course
 
 
 async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
@@ -174,7 +146,7 @@ async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
     box2 = class_.locator('//div[2]/div[2]/div')
 
     location_locators = box1.locator('//div[1]/div/div[1]')
-    locations = await _scrape_locations(ctx, location_locators)
+    classrooms, locations = await _scrape_locations(location_locators)
     instructors = await box2.locator('//div[1]/div[2]/div/p')\
                             .all_text_contents()
     is_online: bool
@@ -202,6 +174,7 @@ async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
         final_exam_time=final_exam_time,
         class_dates=class_dates,
         textbooks=course_textbooks,
+        classrooms=classrooms,
         locations=locations,
     )
 
@@ -238,13 +211,17 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
         'department': department,
     }
 
-async def _scrape_locations(ctx: BrowserContext,
-                            locations: Locator) -> list[list[ClassRoom]]:
+async def _scrape_locations(
+    locations: Locator
+) -> tuple[set[ClassRoom], tuple[tuple[Optional[ClassRoom], ...], ...]]:
+    classrooms = set[ClassRoom]()
     days_ = await locations.locator('//div[1]/div[1]').all_text_contents()
     periods = await locations.locator('//div[1]/div[2]').all_text_contents()
     room_codes = await locations.locator('//div[2]/div[1]/a').all_text_contents()
-    schedule = list(list(None for _ in range(FALL_SPRING_PERIODS))
-                         for _ in range(len(DAY_OF_WEEK_DICT)))
+    schedule: list[list[Optional[ClassRoom]]] = [
+        [None for _ in range(FALL_SPRING_PERIODS)]
+        for _ in range(WEEK_DAYS)
+    ]
     for days, period, room_code in zip(days_, periods, room_codes):
         days = days.removesuffix('\xa0|\xa0').split(',')
         period = period.removeprefix('Period ')\
@@ -265,8 +242,10 @@ async def _scrape_locations(ctx: BrowserContext,
             number=room_number,
             building=get_building(building_abbrev),
         )
+        classrooms.add(classroom)
         for day_idx in day_idxs:
             for period_idx in period_idxs:
                 schedule[day_idx][period_idx] = classroom
-
-    return schedule
+    
+    schedule_tuple = tuple(tuple(row) for row in schedule)
+    return classrooms, schedule_tuple

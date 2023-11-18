@@ -9735,12 +9735,23 @@
       "JTYPE": "BLDG"
     },
     {
-      "ID": "1024",
+        "ID": "1024",
+        "LAT": 29.64463,
+        "LON": -82.34699,
+        "BLDG": "1024",
+        "NAME": "Chris A. Malachowsky Hall",
+        "COMMON_NAME": "Malachowsky Hall",
+        "MAP_NAME": "Malachowsky DSIT",
+        "ABBREV": "MALA",
+        "JTYPE": "BLDG"
+    },
+    {
+      "ID": "T005",
       "LAT": 29.62734,
       "LON": -82.36014,
-      "BLDG": "1024",
+      "BLDG": "T005",
       "NAME": "Hydrogen Research Facility",
-      "COMMON_NAME": "Hydrogen Research ",
+      "COMMON_NAME": "Hydrogen Research",
       "MAP_NAME": "",
       "ABBREV": "",
       "JTYPE": "BLDG"

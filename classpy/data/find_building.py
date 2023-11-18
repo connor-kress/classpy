@@ -3,4 +3,7 @@ from ..locations import Building
 
 
 def get_building(abbrev: str) -> Building:
-    return next(bldg for bldg in BUILDINGS if bldg.abbrev == abbrev)
+    try:
+        return next(bldg for bldg in BUILDINGS if bldg.abbrev == abbrev)
+    except StopIteration:
+        raise Exception(f'"{abbrev}" could not be found.')
