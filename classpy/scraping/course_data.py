@@ -6,7 +6,11 @@ from playwright.async_api import (
 )
 from typing import Optional, Any
 
-from ..data import (
+from ..data.raw_data import (
+    SOC_BASE,
+    SS_PATH,
+    DEFAULT_CATEGORY,
+    DEFAULT_TERM,
     WEEK_DAYS,
     FALL_SPRING_PERIODS,
     DAY_OF_WEEK_DICT,
@@ -21,15 +25,11 @@ from ..course import Course
 from ..class_ import Class
 from ..locations import ClassRoom
 from ..data import get_building
+from ..utils import check_types
 
 from .textbook_data import get_textbooks_from_link
 
 from ..class_functions import add_class_course_binding
-
-SOC_BASE = 'https://one.uf.edu/soc/'
-SS_PATH = r'C:\Users\con2c\Code\Comp. Math\Projects\classpy\classpy\data\images\{}.png'
-DEFAULT_CATEGORY = 'CWSP'
-DEFAULT_TERM = '2241'
 
 
 async def course_query(
@@ -44,11 +44,16 @@ async def course_query(
     program_level: Optional[str] = None,
     department: Optional[str] = None,
 ) -> list[Course]:
-    assert isinstance(category, str)
-    assert isinstance(term, str)
-    for arg in (course_code, course_title, class_num,
-                instructor, program_level, department):
-        assert isinstance(arg, Optional[str])
+    check_types(
+        (category, str),
+        (term, str),
+        (course_code, Optional[str]),
+        (course_title, Optional[str]),
+        (class_num, Optional[str]),
+        (instructor, Optional[str]),
+        (program_level, Optional[str]),
+        (department, Optional[str]),
+    )
     if course_title is not None:
         course_title = course_title.replace(' ', '+')
     query_info = {
@@ -95,7 +100,8 @@ async def _course_query_raw(
         await page.close()
         return []
     await courses_locator.nth(result_count-1).wait_for()
-    # await page.screenshot(path=SS_PATH.format(query_info['course-code']))
+    # ss_path = f'{SS_PATH}{query_info['course-code']}.png'
+    # await page.screenshot(path=ss_path)
     course_locators = await courses_locator.all()
     courses = await asyncio.gather(*(_scrape_course(ctx, course) for course in course_locators))
     # courses = [await _scrape_course(ctx, course) for course in course_locators]
@@ -237,10 +243,13 @@ async def _scrape_locations(
         else:
             period_idxs = (FALL_SPRING_PERIOD_DICT[period],)
         building_abbrev, room_number = room_code.split(' ')
+        building = get_building(building_abbrev)
+        if building is None:
+            raise Exception(f'"{building_abbrev}" could not be found.')
         classroom = ClassRoom(
             code=room_code,
             number=room_number,
-            building=get_building(building_abbrev),
+            building=building,
         )
         classrooms.add(classroom)
         for day_idx in day_idxs:

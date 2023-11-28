@@ -1,11 +1,7 @@
 import json
-import os
 
 from ..locations import Building, Coords
-
-ROOT = os.path.dirname(__file__)
-BUILDINGS_PATH = os.path.join(ROOT, '..', 'data', 'buildings.json')
-BUS_STOPS_PATH = os.path.join(ROOT, '..', 'data', 'bus_stops.json')
+from .raw_data import BUILDINGS_PATH
 
 type BuildingDict = dict[str, str | float]
 
@@ -21,7 +17,7 @@ def _parse_building(data: BuildingDict) -> Building:
 
 
 with open(BUILDINGS_PATH, 'r') as file:
-    data_set = json.loads(file.read())
+    __data_set = json.loads(file.read())
 
-BUILDINGS = [_parse_building(data) for data in data_set if data['JTYPE'] == 'BLDG']
-# PARKS = [_parse_building(data) for data in data_set if data['JTYPE'] == 'PARK']
+BUILDINGS = [_parse_building(data) for data in __data_set if data['JTYPE'] == 'BLDG']
+# PARKS = [_parse_park?(data) for data in __data_set if data['JTYPE'] == 'PARK']

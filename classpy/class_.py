@@ -4,7 +4,7 @@ from typing import Optional, Self
 
 from .locations import ClassRoom
 from .utils import check_types
-from .textbook import Textbook
+from .textbook_collection import TextbookCollection
 
 
 @dataclass(kw_only=True)
@@ -14,7 +14,7 @@ class Class:
     is_online: bool
     final_exam_time: Optional[tuple[datetime, datetime]]
     class_dates: tuple[datetime, datetime]
-    textbooks: list[Textbook]
+    textbooks: TextbookCollection
     classrooms: set[ClassRoom]
     locations: tuple[tuple[Optional[ClassRoom]]]
     
@@ -25,7 +25,7 @@ class Class:
             (self.is_online, bool),
             (self.final_exam_time, Optional[tuple]),
             (self.class_dates, tuple),
-            (self.textbooks, list),
+            (self.textbooks, TextbookCollection),
             (self.classrooms, set),
             (self.locations, tuple),
         )

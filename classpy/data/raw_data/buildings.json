@@ -9735,15 +9735,15 @@
       "JTYPE": "BLDG"
     },
     {
-        "ID": "1024",
-        "LAT": 29.64463,
-        "LON": -82.34699,
-        "BLDG": "1024",
-        "NAME": "Chris A. Malachowsky Hall",
-        "COMMON_NAME": "Malachowsky Hall",
-        "MAP_NAME": "Malachowsky DSIT",
-        "ABBREV": "MALA",
-        "JTYPE": "BLDG"
+      "ID": "1024",
+      "LAT": 29.64463,
+      "LON": -82.34699,
+      "BLDG": "1024",
+      "NAME": "Chris A. Malachowsky Hall",
+      "COMMON_NAME": "Malachowsky Hall",
+      "MAP_NAME": "Malachowsky DSIT",
+      "ABBREV": "MALA",
+      "JTYPE": "BLDG"
     },
     {
       "ID": "T005",

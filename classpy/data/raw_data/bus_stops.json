@@ -1,0 +1,1811 @@
+[
+    {
+      "STOP_ID": "443",
+      "NAME": "Southbound SW 13th Street @ Museum Road",
+      "DESCRIPTION": "Southbound SW 13th ST @ Nearside Museum RD",
+      "RATING": "Yellow",
+      "NOTES": "Landing Pad is 5' x 7'",
+      "LAT": 29.64506842,
+      "LON": -82.33942752
+    },
+    {
+      "STOP_ID": "446",
+      "NAME": "Shands Hospital @ Archer Road",
+      "DESCRIPTION": "Westbound Archer RD @ Farside SW 16th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63904959,
+      "LON": -82.34408885
+    },
+    {
+      "STOP_ID": "53",
+      "NAME": "Eastbound SW 2nd Ave @ SW 7th Terrace",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Farside SW 7th TER",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65018093,
+      "LON": -82.33208414
+    },
+    {
+      "STOP_ID": "1229",
+      "NAME": "Jefferson 2nd Avenue Apartments",
+      "DESCRIPTION": "Westbound SW 4th AVE @ Farside SW 5th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6483919,
+      "LON": -82.3300345
+    },
+    {
+      "STOP_ID": "8",
+      "NAME": "Courtyard Apartments",
+      "DESCRIPTION": "Southbound SW 12th ST @ Farside SW 2nd AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64957426,
+      "LON": -82.33717885
+    },
+    {
+      "STOP_ID": "50",
+      "NAME": "Campus USA Bank",
+      "DESCRIPTION": "Northbound SW 12th ST @ Nearside SW 4th AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64818659,
+      "LON": -82.33707502
+    },
+    {
+      "STOP_ID": "1231",
+      "NAME": "Graduate Apartments",
+      "DESCRIPTION": "Westbound SW 4th AVE @ Nearside SW 13th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64850303,
+      "LON": -82.33840276
+    },
+    {
+      "STOP_ID": "364",
+      "NAME": "McDonald's @ SW 13th Street",
+      "DESCRIPTION": "Northbound NW 13th ST @ Nearside W University AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65315376,
+      "LON": -82.33909802
+    },
+    {
+      "STOP_ID": "272",
+      "NAME": "University of Florida Family Medicine",
+      "DESCRIPTION": "Westbound SW 4th AVE @ Farside SW 6th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64838056,
+      "LON": -82.33186138
+    },
+    {
+      "STOP_ID": "273",
+      "NAME": "University of Florida Family Medicine",
+      "DESCRIPTION": "Eastbound SW 4th AVE @ Nearside SW 7th TER",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64826159,
+      "LON": -82.33197835
+    },
+    {
+      "STOP_ID": "196",
+      "NAME": "Pressly Stadium",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Farside Woodlawn DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65044609,
+      "LON": -82.35543068
+    },
+    {
+      "STOP_ID": "197",
+      "NAME": "Ben Hill Griffin Stadium",
+      "DESCRIPTION": "Eastbound W University AVE @ Farside Gale Lemeran*",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65197459,
+      "LON": -82.34904918
+    },
+    {
+      "STOP_ID": "198",
+      "NAME": "St. Augustine Catholic Church",
+      "DESCRIPTION": "Eastbound W University AVE @ Nearside Fletcher DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65197709,
+      "LON": -82.34643418
+    },
+    {
+      "STOP_ID": "199",
+      "NAME": "Keene Flint Hall",
+      "DESCRIPTION": "Eastbound W University AVE @ Farside Buckman DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65198192,
+      "LON": -82.34424685
+    },
+    {
+      "STOP_ID": "200",
+      "NAME": "Anderson Hall",
+      "DESCRIPTION": "Eastbound W University AVE @ Nearside NW 15th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65200042,
+      "LON": -82.34201018
+    },
+    {
+      "STOP_ID": "201",
+      "NAME": "Leonardo's Pizza By The Slice",
+      "DESCRIPTION": "Eastbound W University AVE @ Farside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65198276,
+      "LON": -82.33823035
+    },
+    {
+      "STOP_ID": "203",
+      "NAME": "University of Florida Human Resources",
+      "DESCRIPTION": "Eastbound W University AVE @ Nearside W 8th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65196158,
+      "LON": -82.33375126
+    },
+    {
+      "STOP_ID": "204",
+      "NAME": "Ayers Medical Plaza",
+      "DESCRIPTION": "Eastbound W University AVE @ Nearside SW 7th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65196809,
+      "LON": -82.33195935
+    },
+    {
+      "STOP_ID": "144",
+      "NAME": "Leonardo's 706",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 8th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6521498,
+      "LON": -82.33235928
+    },
+    {
+      "STOP_ID": "145",
+      "NAME": "Westbound W University Ave @ NW 10th St",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 10th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65214812,
+      "LON": -82.33489666
+    },
+    {
+      "STOP_ID": "146",
+      "NAME": "Holiday Inn @ W University Avenue",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65215771,
+      "LON": -82.33858175
+    },
+    {
+      "STOP_ID": "147",
+      "NAME": "Target Copy @ W University Avenue",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside SW 14th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65219639,
+      "LON": -82.34083739
+    },
+    {
+      "STOP_ID": "148",
+      "NAME": "Smathers Library",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 16th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65213259,
+      "LON": -82.34307868
+    },
+    {
+      "STOP_ID": "149",
+      "NAME": "Swamp Restaurant",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 17th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65215759,
+      "LON": -82.34457385
+    },
+    {
+      "STOP_ID": "150",
+      "NAME": "University Lutheran Church",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 19th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65218218,
+      "LON": -82.34769327
+    },
+    {
+      "STOP_ID": "1258",
+      "NAME": "Eastbound SW 4th Avenue @ SW 10th Street",
+      "DESCRIPTION": "Eastbound SW 4th AVE @ Nearside SW 10th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64838709,
+      "LON": -82.3351452
+    },
+    {
+      "STOP_ID": "1257",
+      "NAME": "Westbound SW 4th Avenue @ SW 10th Street",
+      "DESCRIPTION": "Westbound SW 4th AVE @ Nearside SW 10th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64848142,
+      "LON": -82.33494202
+    },
+    {
+      "STOP_ID": "6",
+      "NAME": "Ayers Medical Plaza",
+      "DESCRIPTION": "Westbound SW 2nd AVE @ Nearside SW 8th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65033492,
+      "LON": -82.33279035
+    },
+    {
+      "STOP_ID": "52",
+      "NAME": "Eastbound SW 2nd Avenue @ SW 10th Street",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Nearside SW 10th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65015376,
+      "LON": -82.33540985
+    },
+    {
+      "STOP_ID": "51",
+      "NAME": "Camden Court Apartments",
+      "DESCRIPTION": "Northbound SW 12th ST @ Nearside SW 2th AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64970076,
+      "LON": -82.33704802
+    },
+    {
+      "STOP_ID": "10",
+      "NAME": "Norman Hall",
+      "DESCRIPTION": "Southbound SW 12th ST @ Farside SW 6th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64674427,
+      "LON": -82.33717883
+    },
+    {
+      "STOP_ID": "478",
+      "NAME": "IFAS Lab",
+      "DESCRIPTION": "Westbound Mowry RD @ Farside Hull RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63827951,
+      "LON": -82.35697034
+    },
+    {
+      "STOP_ID": "1481",
+      "NAME": "Cancer/Genetics Research Complex",
+      "DESCRIPTION": "Eastbound Mowry Rd @ Farside SW 23 Dr",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63832113,
+      "LON": -82.35392637
+    },
+    {
+      "STOP_ID": "1482",
+      "NAME": "Lake Alice Condervation Are",
+      "DESCRIPTION": "Westbound Mowry Rd @ Nearside SW 23 Dr",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63847361,
+      "LON": -82.35360223
+    },
+    {
+      "STOP_ID": "477",
+      "NAME": "Cancer & Genetics Research Center",
+      "DESCRIPTION": "Westbound Mowry RD @ Farside Gale Lemerand",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63883633,
+      "LON": -82.35164204
+    },
+    {
+      "STOP_ID": "467",
+      "NAME": "Cancer and Genetics Research",
+      "DESCRIPTION": "Eastbound Mowry RD @ Nearside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63876909,
+      "LON": -82.35141085
+    },
+    {
+      "STOP_ID": "934",
+      "NAME": "Campus Church of Christ",
+      "DESCRIPTION": "Westbound SW 2nd Ave @ Farside SW 26th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.65043246,
+      "LON": -82.36276367
+    },
+    {
+      "STOP_ID": "194",
+      "NAME": "Eastbound SW 2nd Avenue @ SW 26th Street",
+      "DESCRIPTION": "Eastbound SW 2nd Avenue @ SW 26th Street",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65034692,
+      "LON": -82.36127801
+    },
+    {
+      "STOP_ID": "1471",
+      "NAME": "Domino's Pizza",
+      "DESCRIPTION": "eastbound University Ave @ Nearside NW 33rd Ct",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65213104,
+      "LON": -82.3712188
+    },
+    {
+      "STOP_ID": "157",
+      "NAME": "West Gate Shopping Center",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 32nd ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65229342,
+      "LON": -82.36962801
+    },
+    {
+      "STOP_ID": "1470",
+      "NAME": "Women's Club",
+      "DESCRIPTION": "Eastbound University Ave @ Farside NW 28th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65203727,
+      "LON": -82.36471246
+    },
+    {
+      "STOP_ID": "1560",
+      "NAME": "Women Center",
+      "DESCRIPTION": "Westbound W University AVE @ Nearside NW 28th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65210245,
+      "LON": -82.36436868
+    },
+    {
+      "STOP_ID": "154",
+      "NAME": "Westbound University Avenue @ NW 23rd Drive",
+      "DESCRIPTION": "Westbound W University Ave @ NW 23rd DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65233937,
+      "LON": -82.35888814
+    },
+    {
+      "STOP_ID": "1469",
+      "NAME": "Eastbound W University AVE @ SW 23rd DR",
+      "DESCRIPTION": "Eastbound W University AVE @ SW 23rd DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65216844,
+      "LON": -82.35860125
+    },
+    {
+      "STOP_ID": "153",
+      "NAME": "Westbound W University AVE @ NW 22nd ST",
+      "DESCRIPTION": "Westbound W University AVE @ NW 22nd ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65213042,
+      "LON": -82.35529018
+    },
+    {
+      "STOP_ID": "152",
+      "NAME": "Hillel at the University of Florida",
+      "DESCRIPTION": "Westbound W University AVE @ farside NW 20th DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65217759,
+      "LON": -82.35020785
+    },
+    {
+      "STOP_ID": "936",
+      "NAME": "Publix @ SW 34th Street",
+      "DESCRIPTION": "Westbound SW 2nd AVE @ Nearside SW 34th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.65043747,
+      "LON": -82.37073148
+    },
+    {
+      "STOP_ID": "191",
+      "NAME": "West Gate Shopping Center",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Farside SW 24th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65031216,
+      "LON": -82.37078814
+    },
+    {
+      "STOP_ID": "192",
+      "NAME": "UF Golf Course",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Farside SW 30th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65033015,
+      "LON": -82.36741143
+    },
+    {
+      "STOP_ID": "935",
+      "NAME": "Westbound SW 2nd AVE @ Nearside SW 30th ST",
+      "DESCRIPTION": "Westbound SW 2nd AVE @ Nearside SW 30th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.65048092,
+      "LON": -82.36726918
+    },
+    {
+      "STOP_ID": "937",
+      "NAME": "Point West Apartments",
+      "DESCRIPTION": "Southbound SW 34the ST @ Farside SW 2nd Ave",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64799126,
+      "LON": -82.37252484
+    },
+    {
+      "STOP_ID": "960",
+      "NAME": "34th Street Wall",
+      "DESCRIPTION": "Northbound SW 34th ST @ Nearside SW 2nd Ave",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6462576,
+      "LON": -82.37230727
+    },
+    {
+      "STOP_ID": "938",
+      "NAME": "Maguire Village @ SW 34th Street",
+      "DESCRIPTION": "Southbound SW 34th ST @ Nearside Radio RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64239081,
+      "LON": -82.37266504
+    },
+    {
+      "STOP_ID": "959",
+      "NAME": "Family Housing @ SW 34th Street",
+      "DESCRIPTION": "Northbound SW 34th ST @ Nearside Radio RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64207043,
+      "LON": -82.37232667
+    },
+    {
+      "STOP_ID": "660",
+      "NAME": "Shands Hospital @ Helipad",
+      "DESCRIPTION": "Westbound Shealy DR @ Farside SW 16th Ave",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63550243,
+      "LON": -82.35124418
+    },
+    {
+      "STOP_ID": "652",
+      "NAME": "Shands Hospital @ Helipad",
+      "DESCRIPTION": "Eastbound Shealy DR @ Farside Archer RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63552259,
+      "LON": -82.35100218
+    },
+    {
+      "STOP_ID": "1183",
+      "NAME": "CUltural Plaza PArk and Ride 1",
+      "DESCRIPTION": "Eastbound Hull RD @ Farside Bledsoe DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63673711,
+      "LON": -82.36795346
+    },
+    {
+      "STOP_ID": "808",
+      "NAME": "Hilton University of Florida Conference Center",
+      "DESCRIPTION": "Southbound SW 34th ST @ Nearside SW 19th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63589265,
+      "LON": -82.37267601
+    },
+    {
+      "STOP_ID": "839",
+      "NAME": "Florida Department of Agriculture",
+      "DESCRIPTION": "Northbound SW 34th ST @ Farside SW 20th Ave",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63544725,
+      "LON": -82.37237399
+    },
+    {
+      "STOP_ID": "38",
+      "NAME": "University Commons Apartments @ Archer Road",
+      "DESCRIPTION": "Eastbound Archer RD @ Nearside SW 23rd Ter",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63197453,
+      "LON": -82.36198615
+    },
+    {
+      "STOP_ID": "22",
+      "NAME": "Country Villeage Apartments",
+      "DESCRIPTION": "Westbound Archer RD @ Farside SW 23rd Ter",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.6320427,
+      "LON": -82.3625039
+    },
+    {
+      "STOP_ID": "1267",
+      "NAME": "University Commons Apartment",
+      "DESCRIPTION": "Westbound Old Archer RD @ Farside SW 23rd Ter",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63120755,
+      "LON": -82.36325964
+    },
+    {
+      "STOP_ID": "230",
+      "NAME": "UF Surge Area Drive",
+      "DESCRIPTION": "Westbound Archer RD @ Nearside Surge Area DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63053227,
+      "LON": -82.36576082
+    },
+    {
+      "STOP_ID": "37",
+      "NAME": "Brandywine Apartments",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside Surge Area DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63035851,
+      "LON": -82.36535465
+    },
+    {
+      "STOP_ID": "48",
+      "NAME": "Norman Hall",
+      "DESCRIPTION": "Northbound SW 12th ST @ Farside SW 7th AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64602659,
+      "LON": -82.33702318
+    },
+    {
+      "STOP_ID": "11",
+      "NAME": "Norman Parking Garage",
+      "DESCRIPTION": "Southbound SW 12th ST @ Nearside SW 8th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64512002,
+      "LON": -82.33711925
+    },
+    {
+      "STOP_ID": "47",
+      "NAME": "Sorority Row @ SW 8th Avenue",
+      "DESCRIPTION": "Eastbound SW 8th AVE @ Farside SW 12th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64485443,
+      "LON": -82.33780768
+    },
+    {
+      "STOP_ID": "360",
+      "NAME": "Norman Field",
+      "DESCRIPTION": "Northbound SW 13th ST @ Farside SW 8th AVE",
+      "RATING": "Yellow",
+      "NOTES": "Landing pad less than 5\" on ea. Side",
+      "LAT": 29.64542831,
+      "LON": -82.33920502
+    },
+    {
+      "STOP_ID": "361",
+      "NAME": "Norman Hall",
+      "DESCRIPTION": "Northbound SW 13th ST @ Nearside SW 5th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64715759,
+      "LON": -82.33920252
+    },
+    {
+      "STOP_ID": "362",
+      "NAME": "Courtyards Apartments",
+      "DESCRIPTION": "Northbound SW 13th ST @ Nearside SW 3rd AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64916342,
+      "LON": -82.33921535
+    },
+    {
+      "STOP_ID": "1224",
+      "NAME": "Graduate Apartments",
+      "DESCRIPTION": "Eastbound SW 4th AVE @ Farside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64839723,
+      "LON": -82.33840265
+    },
+    {
+      "STOP_ID": "1226",
+      "NAME": "Jefferson 2nd Avenue Apartments",
+      "DESCRIPTION": "Eastbound SW 4th AVE @ Nearside SW 5th TER",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64827042,
+      "LON": -82.32979985
+    },
+    {
+      "STOP_ID": "1199",
+      "NAME": "VA Hospital @ Archer Rd",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside Center DR",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.63823336,
+      "LON": -82.34558953
+    },
+    {
+      "STOP_ID": "12",
+      "NAME": "Norman Field @ SW 8th Avenue",
+      "DESCRIPTION": "Westbound SW 8th AVE @ Farside SW 12th ST",
+      "RATING": "Yellow",
+      "NOTES": "No actual landing pad and constricting area to turn",
+      "LAT": 29.64495626,
+      "LON": -82.33809468
+    },
+    {
+      "STOP_ID": "1323",
+      "NAME": "College Manor Apartments",
+      "DESCRIPTION": "Westbound SW 2nd AVE @ Nearside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65033392,
+      "LON": -82.33780135
+    },
+    {
+      "STOP_ID": "9",
+      "NAME": "Campus USA Bank",
+      "DESCRIPTION": "Southbound SW 12th ST @ Farside SW 4th AVE",
+      "RATING": "Red",
+      "NOTES": "1 Foot sidewalk",
+      "LAT": 29.64803326,
+      "LON": -82.33715068
+    },
+    {
+      "STOP_ID": "7",
+      "NAME": "Westbound SW 2nd Ave @ SW 10th St",
+      "DESCRIPTION": "Westbound SW 2nd AVE @ Nearside SW 10th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65031426,
+      "LON": -82.33460268
+    },
+    {
+      "STOP_ID": "1294",
+      "NAME": "Southbound SW 10th ST at SW 4th Ave (Deco 39)",
+      "DESCRIPTION": "Southbound SW 10th ST @ Nearside SW 4th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64854344,
+      "LON": -82.33509694
+    },
+    {
+      "STOP_ID": "1356",
+      "NAME": "Dauer Hall",
+      "DESCRIPTION": "Southbound Buckman DR @ Nearside Union DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65035292,
+      "LON": -82.34477852
+    },
+    {
+      "STOP_ID": "1136",
+      "NAME": "Wilmot Gardens",
+      "DESCRIPTION": "Westbound Mowry RD @ Nearside Gale Lemerand DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63953789,
+      "LON": -82.34952644
+    },
+    {
+      "STOP_ID": "1475",
+      "NAME": "President's Park",
+      "DESCRIPTION": "Westbound SW 2nd Ave @ Nearside SW 23rd St",
+      "RATING": "Red",
+      "NOTES": "No Path, Sewer",
+      "LAT": 29.6505398,
+      "LON": -82.35543542
+    },
+    {
+      "STOP_ID": "1544",
+      "NAME": "Sisler Hall",
+      "DESCRIPTION": "Westbound Union Rd @ Farside Newwell Dr",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64982478,
+      "LON": -82.34402452
+    },
+    {
+      "STOP_ID": "847",
+      "NAME": "Corry Village",
+      "DESCRIPTION": "Northbound Museum RD @ Nearside Village DR",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.64477437,
+      "LON": -82.36087488
+    },
+    {
+      "STOP_ID": "800",
+      "NAME": "Corry Village",
+      "DESCRIPTION": "Southbound Museum RD @ Farside Village DR",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.6449416,
+      "LON": -82.36071266
+    },
+    {
+      "STOP_ID": "801",
+      "NAME": "Baughman Center",
+      "DESCRIPTION": "Southbound Museum RD @ Nearside Radio RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64264666,
+      "LON": -82.36405517
+    },
+    {
+      "STOP_ID": "846",
+      "NAME": "Lakeside Residential Complex",
+      "DESCRIPTION": "Eastbound Radio RD @ NEarside Museum RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64224076,
+      "LON": -82.36428101
+    },
+    {
+      "STOP_ID": "1186",
+      "NAME": " Lakeside Residential Building",
+      "DESCRIPTION": "Southbound Museum RD @ Farside Radio RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64125277,
+      "LON": -82.36422348
+    },
+    {
+      "STOP_ID": "8580",
+      "NAME": "Lakeside Housing Complex",
+      "DESCRIPTION": "Northbound Museum RD @ Nearside Radio RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64123126,
+      "LON": -82.36410034
+    },
+    {
+      "STOP_ID": "1187",
+      "NAME": "Microbiology/Cell Science Building",
+      "DESCRIPTION": "Southbound Museum RD @ Nearside Radio RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64035566,
+      "LON": -82.36422788
+    },
+    {
+      "STOP_ID": "1185",
+      "NAME": "Microbiology/Cell Science Building",
+      "DESCRIPTION": "Northbound Museum RD @ Farside Radio RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64026162,
+      "LON": -82.36410017
+    },
+    {
+      "STOP_ID": "1184",
+      "NAME": "Weed Science Building",
+      "DESCRIPTION": "Northbound Museum RD @ Farside Hull RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63879659,
+      "LON": -82.36410284
+    },
+    {
+      "STOP_ID": "1177",
+      "NAME": "Fifield Hall",
+      "DESCRIPTION": "Eastbound Hull RD @ NEarside Mowry RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63772559,
+      "LON": -82.36002101
+    },
+    {
+      "STOP_ID": "1176",
+      "NAME": "Fifield Hall",
+      "DESCRIPTION": "Westbound Hull RD @ NEarside Mowry RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63759057,
+      "LON": -82.36000818
+    },
+    {
+      "STOP_ID": "480",
+      "NAME": "Mt Vernon Apartments",
+      "DESCRIPTION": "Southbound SW 23rd DR @ Nearside Archer RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.6357137,
+      "LON": -82.35890657
+    },
+    {
+      "STOP_ID": "464",
+      "NAME": "Mt Vernon Apartments @ SW 23rd Drive",
+      "DESCRIPTION": "Northbound SW 23rd DR @ Farside Archer RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63577259,
+      "LON": -82.35879151
+    },
+    {
+      "STOP_ID": "479",
+      "NAME": "Campus Edge Condominiums",
+      "DESCRIPTION": "Southbound SW 23rd DR @ Farside Hull RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.6370495,
+      "LON": -82.35891682
+    },
+    {
+      "STOP_ID": "465",
+      "NAME": "Campus Edge Condominiums",
+      "DESCRIPTION": "Northbound SW 23rd DR @ Nearside Hull RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.637101,
+      "LON": -82.35880102
+    },
+    {
+      "STOP_ID": "466",
+      "NAME": "Forestry Field Lab/Plant Growth",
+      "DESCRIPTION": "Eastbound Mowry RD @ Farside Hull RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63814359,
+      "LON": -82.35669908
+    },
+    {
+      "STOP_ID": "468",
+      "NAME": "Parking & Transportation Services",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Farside Mowry RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63979109,
+      "LON": -82.35038735
+    },
+    {
+      "STOP_ID": "469",
+      "NAME": "Commuter Lot Parking Garage @ Gale Lemerand",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Farside Mowry RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64218443,
+      "LON": -82.35034735
+    },
+    {
+      "STOP_ID": "470",
+      "NAME": "Physics Building",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Nearside Museum RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64356126,
+      "LON": -82.35033468
+    },
+    {
+      "STOP_ID": "472",
+      "NAME": "Rawlings Hall",
+      "DESCRIPTION": "Northbound Newell DR @ Nearside McCarty DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64630776,
+      "LON": -82.34338935
+    },
+    {
+      "STOP_ID": "925",
+      "NAME": "The HUB",
+      "DESCRIPTION": "Eastbound Stadium RD @ Nearside Buckman DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64852959,
+      "LON": -82.34495985
+    },
+    {
+      "STOP_ID": "926",
+      "NAME": "Leigh Hall",
+      "DESCRIPTION": "Northbound Buckman DR @ Nearside W University AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65063776,
+      "LON": -82.34467313
+    },
+    {
+      "STOP_ID": "927",
+      "NAME": "Ben Hill Griffin Stadium North End Zone",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Farside W Universit*",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65105559,
+      "LON": -82.34974301
+    },
+    {
+      "STOP_ID": "929",
+      "NAME": "O'Connell Center @ Stadium Road",
+      "DESCRIPTION": "Westbound Stadium RD @ Farside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64852309,
+      "LON": -82.35048301
+    },
+    {
+      "STOP_ID": "930",
+      "NAME": "Gale Lemerand Athletic Center",
+      "DESCRIPTION": "Westbound Stadium RD @ Nearside Woodlawn DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64839109,
+      "LON": -82.35373268
+    },
+    {
+      "STOP_ID": "696",
+      "NAME": "University Police Department",
+      "DESCRIPTION": "Southbound Newell DR @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64427809,
+      "LON": -82.34360851
+    },
+    {
+      "STOP_ID": "663",
+      "NAME": "Shands Hospital @ East Parking Garage",
+      "DESCRIPTION": "Southbound Newell DR @ Nearside SW Archer RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64099943,
+      "LON": -82.34266468
+    },
+    {
+      "STOP_ID": "662",
+      "NAME": "McKnight Brain Institute",
+      "DESCRIPTION": "Southbound Newell DR @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64244601,
+      "LON": -82.3437283
+    },
+    {
+      "STOP_ID": "664",
+      "NAME": "Shands Hospital Emergency Room",
+      "DESCRIPTION": "Southbound Newell DR @ Nearside SW Archer RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63983376,
+      "LON": -82.34194935
+    },
+    {
+      "STOP_ID": "1152",
+      "NAME": "Florida Gym",
+      "DESCRIPTION": "Westbound Stadium RD @ Nearside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64868859,
+      "LON": -82.34743618
+    },
+    {
+      "STOP_ID": "1241",
+      "NAME": "The Hub and Student Health Care Center",
+      "DESCRIPTION": "Westbound Stadium RD @ Farside Buckman DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64866359,
+      "LON": -82.34530635
+    },
+    {
+      "STOP_ID": "1207",
+      "NAME": "Century Tower",
+      "DESCRIPTION": "Northbound Newell DR @ Nearside Stadium RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64888959,
+      "LON": -82.34342168
+    },
+    {
+      "STOP_ID": "1134",
+      "NAME": "Reitz Student Union",
+      "DESCRIPTION": "Eastbound Museum RD @ Nearside Center DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64477776,
+      "LON": -82.34712135
+    },
+    {
+      "STOP_ID": "1159",
+      "NAME": "Phi Kappa Tau",
+      "DESCRIPTION": "Eastbound SW 2nd AVE @ Farside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65018492,
+      "LON": -82.33867202
+    },
+    {
+      "STOP_ID": "363",
+      "NAME": "Kangaroo @ SW 13th Street",
+      "DESCRIPTION": "Northbound SW 13th ST @ Nearside W University AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.65148259,
+      "LON": -82.33919868
+    },
+    {
+      "STOP_ID": "966",
+      "NAME": "Weimer Hall",
+      "DESCRIPTION": "Eastbound Stadium RD @ Farside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64856959,
+      "LON": -82.34733385
+    },
+    {
+      "STOP_ID": "1158",
+      "NAME": "Walker Hall",
+      "DESCRIPTION": "Eastbound Union RD @ Farside Newell DR",
+      "RATING": "Red",
+      "NOTES": "Benches in the way of path",
+      "LAT": 29.64968845,
+      "LON": -82.34155571
+    },
+    {
+      "STOP_ID": "1150",
+      "NAME": "Criser Hall",
+      "DESCRIPTION": "Westbound Union RD @ Nearside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64985428,
+      "LON": -82.34175926
+    },
+    {
+      "STOP_ID": "1192",
+      "NAME": "Turlington Hall",
+      "DESCRIPTION": "Southbound Newell DR @ Farside Union RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64839475,
+      "LON": -82.34355845
+    },
+    {
+      "STOP_ID": "1193",
+      "NAME": "Rawlings Hall",
+      "DESCRIPTION": "Southbound Newell DR @ Nearside McCarty DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64660764,
+      "LON": -82.34357212
+    },
+    {
+      "STOP_ID": "1194",
+      "NAME": "Commuter Lot Parking Garage",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Farside Museum RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64204093,
+      "LON": -82.35065685
+    },
+    {
+      "STOP_ID": "1253",
+      "NAME": "Graham Hall",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64581026,
+      "LON": -82.35025685
+    },
+    {
+      "STOP_ID": "1154",
+      "NAME": "Graham Hall",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Nearside Museum RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64594193,
+      "LON": -82.35043051
+    },
+    {
+      "STOP_ID": "1153",
+      "NAME": "Tolbert Residence Hall",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Farside Stadium RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64774576,
+      "LON": -82.34980435
+    },
+    {
+      "STOP_ID": "1254",
+      "NAME": "Gator Corner Dining Facility @ Gale Lemerand",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Nearside Stadium RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64816726,
+      "LON": -82.34961785
+    },
+    {
+      "STOP_ID": "1135",
+      "NAME": "Shands Visitor Parking",
+      "DESCRIPTION": "Westbound Mowry RD @ Farside Center DR",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.63963672,
+      "LON": -82.3472878
+    },
+    {
+      "STOP_ID": "1141",
+      "NAME": "Wilmot Gardens",
+      "DESCRIPTION": "Eastbound Mowry RD @ Farside Gale Lemerand DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63938778,
+      "LON": -82.34971485
+    },
+    {
+      "STOP_ID": "1161",
+      "NAME": "Springs Residence Building",
+      "DESCRIPTION": "Westbound Fraternity Row @ Farside Woodlawn DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64861426,
+      "LON": -82.35656734
+    },
+    {
+      "STOP_ID": "848",
+      "NAME": "Lake Alice Field",
+      "DESCRIPTION": "Eastbound Museum RD @ Farside Fraternity DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64487465,
+      "LON": -82.35671767
+    },
+    {
+      "STOP_ID": "799",
+      "NAME": "Lake Alice Field",
+      "DESCRIPTION": "Westbound Museum RD @ Nearside Fraternity DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64501193,
+      "LON": -82.35697251
+    },
+    {
+      "STOP_ID": "797",
+      "NAME": "Hume Hall",
+      "DESCRIPTION": "Westbound Museum RD @ Farside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64495065,
+      "LON": -82.35220232
+    },
+    {
+      "STOP_ID": "849",
+      "NAME": "Hume Hall",
+      "DESCRIPTION": "Eastbound Museum RD @ Nearside Gale Lemerand DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64483659,
+      "LON": -82.35198835
+    },
+    {
+      "STOP_ID": "798",
+      "NAME": "Sigma Alpha Epsilon",
+      "DESCRIPTION": "Westbound Museum RD @ Nearside Woodlawn DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.6449741,
+      "LON": -82.35529526
+    },
+    {
+      "STOP_ID": "1144",
+      "NAME": "Fraternity Row",
+      "DESCRIPTION": "Northbound Fraternity Row @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64644676,
+      "LON": -82.35797018
+    },
+    {
+      "STOP_ID": "1145",
+      "NAME": "Fraternity Row",
+      "DESCRIPTION": "Eastbound Fraternity Row @ Farside W Fraternity R*",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64831476,
+      "LON": -82.35759684
+    },
+    {
+      "STOP_ID": "1146",
+      "NAME": "Springs Residence Building",
+      "DESCRIPTION": "Eastbound Fraternity Row @ Nearside Woodlawn DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64854343,
+      "LON": -82.35643818
+    },
+    {
+      "STOP_ID": "962",
+      "NAME": "Keys Residential Complex",
+      "DESCRIPTION": "Eastbound Stadium RD @ Farside Woodlawn DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64825077,
+      "LON": -82.35474623
+    },
+    {
+      "STOP_ID": "963",
+      "NAME": "Keys Residential Complex",
+      "DESCRIPTION": "Eastbound Stadium RD @ Nearside Woodlawn DR",
+      "RATING": "Red",
+      "NOTES": "No Path, Sewer",
+      "LAT": 29.64820943,
+      "LON": -82.35300968
+    },
+    {
+      "STOP_ID": "965",
+      "NAME": "Gator Corner Dining",
+      "DESCRIPTION": "Eastbound Stadium RD @ Nearside Gale Lemerand DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64853143,
+      "LON": -82.35011418
+    },
+    {
+      "STOP_ID": "13",
+      "NAME": "Beaty Towers",
+      "DESCRIPTION": "Westbound Museum RD @ Farside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64492247,
+      "LON": -82.3401019
+    },
+    {
+      "STOP_ID": "14",
+      "NAME": "Frazier Rogers Hall",
+      "DESCRIPTION": "Westbound Museum RD @ Farside Newell DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64494091,
+      "LON": -82.34499721
+    },
+    {
+      "STOP_ID": "15",
+      "NAME": "Benton Hall",
+      "DESCRIPTION": "Southbound Center DR @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64390399,
+      "LON": -82.34701026
+    },
+    {
+      "STOP_ID": "16",
+      "NAME": "Shands Hospital @ Basic Science Building",
+      "DESCRIPTION": "Southbound Center DR @ Nearside Mowry RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64020159,
+      "LON": -82.34628818
+    },
+    {
+      "STOP_ID": "17",
+      "NAME": "Shands Hospital @ Dental Science Building",
+      "DESCRIPTION": "Southbound Center DR @ Nearside Archer RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63883959,
+      "LON": -82.34626801
+    },
+    {
+      "STOP_ID": "18",
+      "NAME": "Shands Hospital @ Davis Cancer Pavilion",
+      "DESCRIPTION": "Westbound Archer RD @ Nearside Gale Lemerand DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63702287,
+      "LON": -82.34988451
+    },
+    {
+      "STOP_ID": "40",
+      "NAME": "Shands Care Helicopter Pad",
+      "DESCRIPTION": "Eastbound Archer RD @ Nearside Gale Lemerand DR",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.6364016,
+      "LON": -82.35091151
+    },
+    {
+      "STOP_ID": "41",
+      "NAME": "Shands Hospital @ Dental Science Building",
+      "DESCRIPTION": "Northbound Center DR @ Farside Archer RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63905426,
+      "LON": -82.34614118
+    },
+    {
+      "STOP_ID": "42",
+      "NAME": "Shands Hospital @ HPNP Building",
+      "DESCRIPTION": "Northbound Center DR @ Farside Mowry RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6408437,
+      "LON": -82.34606499
+    },
+    {
+      "STOP_ID": "43",
+      "NAME": "Greenhouse - Agronomy Building",
+      "DESCRIPTION": "Northbound Center DR @ Nearside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64436009,
+      "LON": -82.34685268
+    },
+    {
+      "STOP_ID": "45",
+      "NAME": "University Police Department",
+      "DESCRIPTION": "Eastbound Museum RD @ Farside Newell DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64475859,
+      "LON": -82.34306806
+    },
+    {
+      "STOP_ID": "46",
+      "NAME": "Beaty Towers",
+      "DESCRIPTION": "Eastbound Museum RD @ Nearside SW 13th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64470559,
+      "LON": -82.34079068
+    },
+    {
+      "STOP_ID": "473",
+      "NAME": "Reitz Student Union",
+      "DESCRIPTION": "Southbound McCarty DR @ Nearside Museum RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64514026,
+      "LON": -82.34698268
+    },
+    {
+      "STOP_ID": "474",
+      "NAME": "Commuter Lot Parking Garage",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Farside Museum RD",
+      "RATING": "Red",
+      "NOTES": "No sidewalk or pad just dirt",
+      "LAT": 29.64327709,
+      "LON": -82.35052701
+    },
+    {
+      "STOP_ID": "475",
+      "NAME": "Commuter Lot Parking Garage",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Nearside Mowry RD",
+      "RATING": "Red",
+      "NOTES": "No sidewalk or pad just dirt",
+      "LAT": 29.64095948,
+      "LON": -82.35055286
+    },
+    {
+      "STOP_ID": "476",
+      "NAME": "Parking & Transportation Services",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Nearside Mowry RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63945058,
+      "LON": -82.35057546
+    },
+    {
+      "STOP_ID": "659",
+      "NAME": "Shands Hospital @ Parking Garage 9",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Farside Archer RD",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.63598908,
+      "LON": -82.3501354
+    },
+    {
+      "STOP_ID": "653",
+      "NAME": "Shands Hospital @ Parking Garage 9",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Nearside Archer RD",
+      "RATING": "Red",
+      "NOTES": "Grass",
+      "LAT": 29.63632259,
+      "LON": -82.35007435
+    },
+    {
+      "STOP_ID": "654",
+      "NAME": "Shands Hospital @ Davis Cancer Pavilion",
+      "DESCRIPTION": "Northbound Gale Lemerand DR @ Farside Archer RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63775452,
+      "LON": -82.35024279
+    },
+    {
+      "STOP_ID": "658",
+      "NAME": "Shands Hospital @ Davis Cancer Pavilion",
+      "DESCRIPTION": "Southbound Gale Lemerand DR @ Nearside Archer RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63768793,
+      "LON": -82.35042318
+    },
+    {
+      "STOP_ID": "441",
+      "NAME": "Tigert Hall",
+      "DESCRIPTION": "Southbound SW 13th ST @ Farside SW 2nd AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.65005459,
+      "LON": -82.33944752
+    },
+    {
+      "STOP_ID": "442",
+      "NAME": "Southbound SW 13th Street @ Inner Road",
+      "DESCRIPTION": "Southbound SW 13th ST @ Nearside Inner RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64766492,
+      "LON": -82.33951718
+    },
+    {
+      "STOP_ID": "36",
+      "NAME": "Capstone Quarters Apartments",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside Surge Area DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.62975833,
+      "LON": -82.36661085
+    },
+    {
+      "STOP_ID": "1269",
+      "NAME": "Archer Court Apartments",
+      "DESCRIPTION": "Westbound Old Archer RD @ Nearside SW 28th Pl",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.62943203,
+      "LON": -82.36709604
+    },
+    {
+      "STOP_ID": "24",
+      "NAME": "Gator Carwash",
+      "DESCRIPTION": "Westbound Archer RD @ Farside Surge Area DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.62955126,
+      "LON": -82.36781763
+    },
+    {
+      "STOP_ID": "35",
+      "NAME": "Tuscan Bend Apartments",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside SW 34th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.62907953,
+      "LON": -82.3681693
+    },
+    {
+      "STOP_ID": "34",
+      "NAME": "Radio Shack @ Archer Road",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside SW 34th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6275674,
+      "LON": -82.37118424
+    },
+    {
+      "STOP_ID": "25",
+      "NAME": "Westbound Archer Road @ SW 34th Street",
+      "DESCRIPTION": "Westbound Archer RD @ Nearside SW 34th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.62774003,
+      "LON": -82.37152211
+    },
+    {
+      "STOP_ID": "957",
+      "NAME": "Regency Oaks Apartments",
+      "DESCRIPTION": "Northbound SW 34th ST @ Farside Windmeadows BLVD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.62933008,
+      "LON": -82.37240355
+    },
+    {
+      "STOP_ID": "943",
+      "NAME": "Kelly's Kwik Stop",
+      "DESCRIPTION": "Southbound SW 34th SR @ Farside SW 24th AVE",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.62975351,
+      "LON": -82.37274975
+    },
+    {
+      "STOP_ID": "958",
+      "NAME": "34th Street Plaza",
+      "DESCRIPTION": "Northbound SW 34th ST @ Nearside SW 20th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63156217,
+      "LON": -82.37239686
+    },
+    {
+      "STOP_ID": "942",
+      "NAME": "34th Street Plaza",
+      "DESCRIPTION": "Southbound SW 34th ST @ Farside SW 20th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63268897,
+      "LON": -82.37268705
+    },
+    {
+      "STOP_ID": "20",
+      "NAME": "Mt Vernon Apartments",
+      "DESCRIPTION": "Westbound Archer RD @ Nearside SW 23rd DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63386759,
+      "LON": -82.35862936
+    },
+    {
+      "STOP_ID": "39",
+      "NAME": "The Bartram Apartments",
+      "DESCRIPTION": "Eastbound Archer RD @ Farside SW 23rd DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63370529,
+      "LON": -82.35819561
+    },
+    {
+      "STOP_ID": "845",
+      "NAME": "Lakeside Residential Complex",
+      "DESCRIPTION": "Eastbound Radio RD @ Nearside Museum RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64220022,
+      "LON": -82.36610245
+    },
+    {
+      "STOP_ID": "802",
+      "NAME": "Lakeside Apartments",
+      "DESCRIPTION": "Westbound Radio RD @ Farside Museum RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64232067,
+      "LON": -82.36646061
+    },
+    {
+      "STOP_ID": "1326",
+      "NAME": "UF Counseling and Wellness Center",
+      "DESCRIPTION": "Eastbound Radio RD @ Farside Bledsoe DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64214472,
+      "LON": -82.36884205
+    },
+    {
+      "STOP_ID": "803",
+      "NAME": "UF Counseling and Wellness Center",
+      "DESCRIPTION": "Westbound Radio RD @ Nearside Bledsoe DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.6423114,
+      "LON": -82.36896146
+    },
+    {
+      "STOP_ID": "1457",
+      "NAME": "Physical Plant Radio Road",
+      "DESCRIPTION": "Westbound Radio RD @ Nearside SW 34th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64231179,
+      "LON": -82.37074061
+    },
+    {
+      "STOP_ID": "1458",
+      "NAME": "Northside Family Housing",
+      "DESCRIPTION": "Eastbound Radio RD @ Nearside SW 34 ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.64215414,
+      "LON": -82.37073578
+    },
+    {
+      "STOP_ID": "804",
+      "NAME": "Family Housing",
+      "DESCRIPTION": "Southbound Bledsoe DR @ Farside Radio RD",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.6411077,
+      "LON": -82.36937256
+    },
+    {
+      "STOP_ID": "1190",
+      "NAME": "Family Housing",
+      "DESCRIPTION": "Southbound Family Housing @ Farside Bledsoe DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.64093233,
+      "LON": -82.36959768
+    },
+    {
+      "STOP_ID": "844",
+      "NAME": "Maguire Field",
+      "DESCRIPTION": "Northbound Bledsoe DR @ Nearside Radio RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.64096953,
+      "LON": -82.36924434
+    },
+    {
+      "STOP_ID": "842",
+      "NAME": "Southwest Recreation Center",
+      "DESCRIPTION": "Northbound Bledsoe DR @ Farside Hull RD",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.6381766,
+      "LON": -82.3692631
+    },
+    {
+      "STOP_ID": "806",
+      "NAME": "Southwest Recreation Center",
+      "DESCRIPTION": "Southbound Bledsoe DR @ Nearside Hull RD",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63810431,
+      "LON": -82.36936849
+    },
+    {
+      "STOP_ID": "807",
+      "NAME": "University Village South Apartments",
+      "DESCRIPTION": "Westbound Hull RD @ Nearside SW 34th ST",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63774847,
+      "LON": -82.37038452
+    },
+    {
+      "STOP_ID": "841",
+      "NAME": "Harn Museum",
+      "DESCRIPTION": "Eastbound Hull RD @ Farside Bledsoe DR",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63755737,
+      "LON": -82.37008526
+    },
+    {
+      "STOP_ID": "1173",
+      "NAME": "Southwest Recreation Center",
+      "DESCRIPTION": "Eastbound Hull RD @ Farside Bledsoe DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63757624,
+      "LON": -82.36860914
+    },
+    {
+      "STOP_ID": "1180",
+      "NAME": "Southwest Recreation Center",
+      "DESCRIPTION": "Westbound Hull RD @ Nearside Bledsoe DR",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63777945,
+      "LON": -82.36833424
+    },
+    {
+      "STOP_ID": "1179",
+      "NAME": "Pressly Softball Stadium",
+      "DESCRIPTION": "Westbound Hull RD @ Farside Natural Area DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.6377076,
+      "LON": -82.36525315
+    },
+    {
+      "STOP_ID": "1174",
+      "NAME": "Lacrosse Field",
+      "DESCRIPTION": "Eastbound Hull RD @ Nearside Natural Area DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63757765,
+      "LON": -82.36519035
+    },
+    {
+      "STOP_ID": "695",
+      "NAME": "Oakbrook Walk Condominiums",
+      "DESCRIPTION": "Northbound SW 13th ST @ Nearside SW 14th Ave",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63821883,
+      "LON": -82.33923507
+    },
+    {
+      "STOP_ID": "1420",
+      "NAME": "Southbound SW 13th ST @ SW 13th AVE",
+      "DESCRIPTION": "Southbound SW 13th ST @ SW 13th AVE",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63797852,
+      "LON": -82.33942885
+    },
+    {
+      "STOP_ID": "1359",
+      "NAME": "Gainesville Healthcare Center",
+      "DESCRIPTION": "Northbound SW 16th ST @ Nearside Circle of Hope",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63739812,
+      "LON": -82.3428766
+    },
+    {
+      "STOP_ID": "666",
+      "NAME": "Health Science Center Administration",
+      "DESCRIPTION": "Southbound SW 16th ST @ Nearside SW 16th AVE",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.6373934,
+      "LON": -82.34302428
+    },
+    {
+      "STOP_ID": "1550",
+      "NAME": "Westbound SW 16th AVE @ SW 14th ST",
+      "DESCRIPTION": "Westbound SW 16th AVE @ Farside SW 14th ST",
+      "RATING": "Blue",
+      "NOTES": "",
+      "LAT": 29.63645917,
+      "LON": -82.34110149
+    },
+    {
+      "STOP_ID": "668",
+      "NAME": "Ronald McDonald House of Gainesville",
+      "DESCRIPTION": "Eastbound SW 16th AVE @ Nearside SW 14th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63629635,
+      "LON": -82.34035077
+    },
+    {
+      "STOP_ID": "667",
+      "NAME": "Summit House Condominiums",
+      "DESCRIPTION": "Eastbound SW 16th AVE @ Farside SW 16th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63574423,
+      "LON": -82.34247791
+    },
+    {
+      "STOP_ID": "1358",
+      "NAME": "SW 16TH Avenue Building A",
+      "DESCRIPTION": "Eastbound SW 16th AVE @ Nearside SW  16th ST",
+      "RATING": "Red",
+      "NOTES": "",
+      "LAT": 29.63504958,
+      "LON": -82.34508362
+    },
+    {
+      "STOP_ID": "1217",
+      "NAME": "Schiebler Childrens Medical Facility",
+      "DESCRIPTION": "Westbound SW 16th AVE @ Nearside Shealy DR",
+      "RATING": "Yellow",
+      "NOTES": "",
+      "LAT": 29.63516632,
+      "LON": -82.34564678
+    }
+]

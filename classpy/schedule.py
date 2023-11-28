@@ -29,6 +29,8 @@ class Schedule:
             periods = FALL_SPRING_PERIODS
         elif term_type == 'Summer':
             periods = SUMMER_PERIODS
+        else:
+            raise ValueError(f'No such term type "{term_type}" exists.')
         self.data: CoordData = [
             [None for _ in range(periods)]
             for _ in range(WEEK_DAYS)

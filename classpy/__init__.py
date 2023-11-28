@@ -8,8 +8,10 @@ from .course import Course
 from .course_req import CourseReq
 from .class_ import Class
 from .textbook import Textbook
+from .textbook_collection import TextbookCollection
 from .textbook_info import TextbookInfo
-
+from .locations import __all__
+locations.__all__
 from .class_functions import (
     add_class_course_binding,
     get_course_of,
@@ -26,6 +28,7 @@ __all__ = (
     'CourseReq',
     'Class',
     'Textbook',
+    'TextbookCollection',
     'TextbookInfo',
 
     'add_class_course_binding',

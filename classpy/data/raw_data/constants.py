@@ -1,3 +1,5 @@
+SOC_BASE = 'https://one.uf.edu/soc/'
+
 WEEK_DAYS = 6
 FALL_SPRING_PERIODS = 14
 SUMMER_PERIODS = 9
