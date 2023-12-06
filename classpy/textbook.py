@@ -1,5 +1,5 @@
 from asyncio import Task
-from typing import Optional
+from typing import Optional, Self
 
 from .utils import check_types
 from .textbook_info import TextbookInfo
@@ -33,3 +33,13 @@ class Textbook:
                     f'new_price={self.new_price}, '
                     f'used_price={self.used_price}'
                 ')')
+
+    def __hash__(self) -> int:
+        return hash((self.info, self.links,
+                     self.new_price, self.used_price))
+    
+    def __eq__(self, other: Self) -> bool:
+        if not isinstance(other, self.__class__):
+            raise TypeError('`Textbook`s can only be compared '
+                            'with other `Textbook` instances.')
+        return hash(self) == hash(other)

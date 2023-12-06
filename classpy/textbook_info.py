@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from .utils import check_types
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class TextbookInfo:
     title: Optional[str]
     isbn: Optional[str]
@@ -24,13 +24,6 @@ class TextbookInfo:
             (self.copyright, Optional[str]),
             (self.publisher, Optional[str]),
         )
-
-    def __hash__(self) -> int:
-        return hash((
-            self.title, self.isbn, self.cover,
-            self.author, self.edition,
-            self.copyright, self.publisher,
-        ))
     
     def __eq__(self, other: Self) -> bool:
         if not isinstance(other, self.__class__):

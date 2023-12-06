@@ -4,7 +4,7 @@ from .utils import check_types
 from .textbook import Textbook
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class TextbookCollection:
     required: tuple[Textbook]
     optional: tuple[Textbook]

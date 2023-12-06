@@ -16,6 +16,12 @@ class BooleanExpr(ABC):
         and the expression does not evaluate to true given them
         (`self.eval(values) != True`).
         """
+    
+    @abstractmethod
+    def inside_str(self) -> str:
+        """Returns a string representation of `self` used within
+        the stringification of larger boolean expression.
+        """
 
 
 class BooleanToken(BooleanExpr):

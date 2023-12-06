@@ -4,27 +4,19 @@ from playwright.async_api import async_playwright
 
 from classpy import *
 
-# link = 'https://www.bsd.ufl.edu/textadoption/studentview/displayadoption1sect.aspx?SECT=10793&YEAR=24&TERM=1'
-
 
 async def main() -> None:
-    # print = pprint.PrettyPrinter(depth=5).pprint
-    # async with async_playwright() as playwright:
-    #     browser = await playwright.chromium.launch(headless=True)
-    #     ctx = await browser.new_context()
+    print = pprint.PrettyPrinter(depth=5).pprint
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=True)
+        ctx = await browser.new_context()
         
-    #     # print(await course_query(ctx, course_code='MAD2502'))
-    #     print(await get_textbooks_from_link(ctx, link))
-    #     # print(await course_query(ctx, course_code='COP'))
-    #     # print(await course_query(ctx, term='2238', course_code='PHY2020'))
+        course = (await course_query(title='Programming fundamentals 2'))[0]
+        print(course.available_classes[0].locations)
+        print(course)
 
-    #     await ctx.close()
-    #     await browser.close()
-
-    course = (await course_query(course_title='Programming fundamentals 2'))[0]
-    for class_ in course.available_classes:
-        assert get_course_of(class_) is course
-    print(course)
+        await ctx.close()
+        await browser.close()
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 import asyncio
 from collections.abc import Awaitable
-from playwright.async_api import BrowserContext, Locator
+from playwright.async_api import BrowserContext
+import playwright
 from typing import Literal, Optional
 
 from ..textbook_collection import TextbookCollection
@@ -43,21 +44,26 @@ class TextbookManager:
 
 
 async def get_textbooks_from_link(ctx: BrowserContext,
-                                   bsd_url: str) -> list[Textbook]:
+                                  bsd_url: str) -> list[Textbook]:
     print(f'opening {bsd_url}')
     page = await ctx.new_page()
-    await page.goto(bsd_url)
+    try:
+        await page.goto(bsd_url, timeout=240_000)
+    except Exception as e:
+        print(f'Failed to open {bsd_url}')
+        raise e
     rows = await page.locator('table[class="books"] > tbody > tr').all()
     start_idxs = [i for i, loc in enumerate(rows)
                   if 'Title:' in await loc.inner_text()]
     textbook_manager = TextbookManager()
+    textbook_infos = set[TextbookInfo]()
     for i in start_idxs:
         title, isbn_raw, cover_raw = (
             await rows[i].locator('td[class="books"]').all_text_contents()
         )[:3]
         isbn: Optional[str] = None
         if isbn_raw.strip() != 'UFALLACCESS':
-            isbn == isbn_raw.strip() or None
+            isbn = isbn_raw.strip() or None
         cover: Optional[str] = None
         if cover_raw.strip() != 'N/A':
             cover = cover_raw.strip()
@@ -67,10 +73,10 @@ async def get_textbooks_from_link(ctx: BrowserContext,
         prices = await rows[i+2].locator('td[class="books"] > span')\
                                 .all_text_contents()
         if prices:
-            prices = (float(prices[0].removeprefix('$')),
-                      float(prices[1].removeprefix('$')))
+            new_price = float(prices[0].removeprefix('$'))
+            used_price = float(prices[1].removeprefix('$'))
         else:
-            prices = (None, None)
+            new_price, used_price = None, None
         req_level = (await rows[i+3].locator('//td[3]/span')\
                                     .text_content())\
                                     .replace('\xa0', '')\
@@ -79,12 +85,16 @@ async def get_textbooks_from_link(ctx: BrowserContext,
             title=title.strip() or None,
             isbn=isbn,
             cover=cover,
-            author=author.strip(),
+            author=author.strip() or None,
             edition=edition.strip() or None,
             copyright=copyright.strip() or None,
             publisher=publisher.strip() or None,
         )
-        textbook_coro = _get_textbook_from_info(ctx, textbook_info, prices)
+        if textbook_info in textbook_infos:
+            continue
+        textbook_infos.add(textbook_info)
+        textbook_coro = _get_textbook_from_info(ctx, textbook_info,
+                                                new_price, used_price)
         textbook_manager.add(textbook_coro, req_level)
 
     await page.close()
@@ -94,16 +104,17 @@ async def get_textbooks_from_link(ctx: BrowserContext,
 async def _get_textbook_from_info(
     ctx: BrowserContext,
     info: TextbookInfo,
-    prices: tuple[Optional[float], Optional[float]],
+    new_price: Optional[float],
+    used_price: Optional[float],
 ) -> Textbook:
     if info in Textbook.link_cache:
         print(f'cache hit on {info.title}')
         links = await Textbook.link_cache[info]
-        return Textbook(info, links, *prices)
+        return Textbook(info, links, new_price, used_price)
     links_task = asyncio.ensure_future(_get_links_from_info(ctx, info))
     Textbook.link_cache[info] = links_task
     links = await links_task
-    return Textbook(info, links, *prices)
+    return Textbook(info, links, new_price, used_price)
 
 
 async def _get_links_from_info(ctx: BrowserContext, info: TextbookInfo) -> tuple[str]:

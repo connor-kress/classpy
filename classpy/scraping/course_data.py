@@ -37,30 +37,38 @@ async def course_query(
     *,
     category: str = DEFAULT_CATEGORY,
     term: str = DEFAULT_TERM,
-    course_code: Optional[str] = None,
-    course_title: Optional[str] = None,
+    code: Optional[str] = None,
+    title: Optional[str] = None,
     class_num: Optional[str] = None,
     instructor: Optional[str] = None,
     program_level: Optional[str] = None,
     department: Optional[str] = None,
-) -> list[Course]:
+) -> tuple[Course]:
+    """Scrapes the UF Schedule of Courses with the specified search parameters.
+    Returns all matches in the form of `Course` objects.
+
+    ### Parameters
+    * `ctx`: pass a playwright async `BrowserContext` to use it for the search.
+    If no context is passed, a new chromium instance will be created and ended
+    for the query.
+    """
     check_types(
         (category, str),
         (term, str),
-        (course_code, Optional[str]),
-        (course_title, Optional[str]),
+        (code, Optional[str]),
+        (title, Optional[str]),
         (class_num, Optional[str]),
         (instructor, Optional[str]),
         (program_level, Optional[str]),
         (department, Optional[str]),
     )
-    if course_title is not None:
-        course_title = course_title.replace(' ', '+')
+    if title is not None:
+        title = title.replace(' ', '+')
     query_info = {
         'category': category,
         'term': term,
-        'course-code': course_code,
-        'course-title': course_title,
+        'course-code': code,
+        'course-title': title,
         'class-num': class_num,
         'instructor': instructor,
         'prog-level': program_level,
@@ -81,7 +89,8 @@ async def course_query(
 async def _course_query_raw(
     ctx: BrowserContext,
     query_info: dict[str, Optional[str]]
-) -> list[Course]:
+) -> tuple[Course]:
+    """Non user-friendly `course_query` which requires a `ctx` argument."""
     soc_url = f'{SOC_BASE}?{'&'.join(f'{key}="{val}"'
                                     for key, val in query_info.items()
                                     if val is not None)}'
@@ -107,7 +116,7 @@ async def _course_query_raw(
     # courses = [await _scrape_course(ctx, course) for course in course_locators]
 
     await page.close()
-    return courses
+    return tuple(courses)
 
 
 async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
@@ -123,7 +132,8 @@ async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
     offset_data = await _scrape_course_class_offset(classes_locator.first)
     class_locators = await classes_locator.all()
     print(f'Found {len(class_locators)} classes for {title}')
-    classes = await asyncio.gather(*(_scrape_class(ctx, class_) for class_ in class_locators))
+    classes = tuple(await asyncio.gather(*(_scrape_class(ctx, class_)
+                                           for class_ in class_locators)))
     course = Course(
         number=number,
         title=title,
@@ -153,14 +163,16 @@ async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
 
     location_locators = box1.locator('//div[1]/div/div[1]')
     classrooms, locations = await _scrape_locations(location_locators)
-    instructors = await box2.locator('//div[1]/div[2]/div/p')\
-                            .all_text_contents()
+    instructors = tuple(await box2.locator('//div[1]/div[2]/div/p')\
+                                  .all_text_contents())
     is_online: bool
     match await box2.locator('//div[2]/div[2]/div/div[1]')\
-                    .text_content():
+                    .first.text_content():
         case 'Online (100%)': is_online = True
+        case 'Online (80-99%)': is_online = True
         case 'Primarily Classroom': is_online = False
-        case _: raise Exception('Unmatched case')
+        case 'Hybrid': is_online = False
+        case _: raise Exception(f'Unmatched case (class # {number})')
     exam_time_str = await box2.locator('//div[5]/div[2]/div')\
                                 .text_content()
     final_exam_time = parse_exam_time(exam_time_str)
@@ -193,7 +205,7 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
                             .all_text_contents()
     course_fees = None
     EEP_eligable = False
-    gen_ed = []
+    gen_ed = list[str]()
     for additional in additionals:
         if additional == 'EEP Eligible':
             EEP_eligable = True
@@ -203,6 +215,7 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
             gen_ed.append(additional.removeprefix('Gen Ed: '))
         else:
             raise Exception(f'"{additional}" additional case not handled.')
+    gen_ed = tuple(gen_ed)
     
     credits = int(await box2.locator('//div[3]/div[2]/div')  # TODO: move to course_class_offset
                             .text_content())
@@ -219,7 +232,7 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
 
 async def _scrape_locations(
     locations: Locator
-) -> tuple[set[ClassRoom], tuple[tuple[Optional[ClassRoom], ...], ...]]:
+) -> tuple[frozenset[ClassRoom], tuple[tuple[Optional[ClassRoom], ...], ...]]:
     classrooms = set[ClassRoom]()
     days_ = await locations.locator('//div[1]/div[1]').all_text_contents()
     periods = await locations.locator('//div[1]/div[2]').all_text_contents()
@@ -257,4 +270,4 @@ async def _scrape_locations(
                 schedule[day_idx][period_idx] = classroom
     
     schedule_tuple = tuple(tuple(row) for row in schedule)
-    return classrooms, schedule_tuple
+    return frozenset(classrooms), schedule_tuple

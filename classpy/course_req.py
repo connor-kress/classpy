@@ -4,7 +4,7 @@ from typing import Optional
 from .utils import BooleanExpr, check_types
 
 
-@dataclass
+@dataclass(frozen=True)
 class CourseReq:
     string: str
     expr: Optional[BooleanExpr]
@@ -24,7 +24,7 @@ class CourseReq:
             return self.string
         acc = str(self.expr)
         if self.extra_and is not None:
-            acc += f'(and {self.extra_and})'
+            acc += f' (and {self.extra_and})'
         if self.extra_or is not None:
-            acc += f'(or {self.extra_or})'
+            acc += f' (or {self.extra_or})'
         return acc
