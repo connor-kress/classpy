@@ -1,6 +1,7 @@
 from .config import (
     DEFAULT_CATEGORY,
     DEFAULT_TERM,
+    MAX_TIMEOUT,
 )
 from .constants import (
     SOC_BASE,
@@ -21,6 +22,7 @@ from .paths import (
 __all__ = (
     'DEFAULT_CATEGORY',
     'DEFAULT_TERM',
+    'MAX_TIMEOUT',
     'SOC_BASE',
     'WEEK_DAYS',
     'FALL_SPRING_PERIODS',

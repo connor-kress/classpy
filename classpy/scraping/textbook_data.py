@@ -8,6 +8,7 @@ from ..core import (
     TextbookInfo,
     TextbookCollection,
 )
+from ..data.raw_data import MAX_TIMEOUT
 
 type _ReqLevel = Literal['required', 'optional', 'recommended']
 _req_levels = ('required', 'optional', 'recommended')
@@ -49,7 +50,7 @@ async def get_textbooks_from_link(ctx: BrowserContext,
     print(f'opening {bsd_url}')
     page = await ctx.new_page()
     try:
-        await page.goto(bsd_url, timeout=240_000)
+        await page.goto(bsd_url, timeout=MAX_TIMEOUT)
     except Exception as e:
         print(f'Failed to open {bsd_url}')
         raise e
