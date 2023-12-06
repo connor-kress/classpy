@@ -1,5 +1,3 @@
-from typing import Optional
-
 from ..utils import haversine
 from .coordinates import Coords
 

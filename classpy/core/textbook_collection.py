@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .utils import check_types
+from ..utils import check_types
 from .textbook import Textbook
 
 

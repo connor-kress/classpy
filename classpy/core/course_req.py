@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from .utils import BooleanExpr, check_types
+from ..utils import BooleanExpr, check_types
 
 
 @dataclass(frozen=True)

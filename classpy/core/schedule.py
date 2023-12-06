@@ -1,11 +1,11 @@
 from typing import Optional, Literal
 
-from .data import (
+from ..data import (
     WEEK_DAYS,
     FALL_SPRING_PERIODS,
     SUMMER_PERIODS,
 )
-from .locations import Coords, distance
+from ..locations import Coords, distance
 from .class_ import Class
 
 type CoordData = list[list[Optional[Coords]]]

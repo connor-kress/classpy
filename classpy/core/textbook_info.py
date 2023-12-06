@@ -1,7 +1,7 @@
 from typing import Optional, Self
 from dataclasses import dataclass
 
-from .utils import check_types
+from ..utils import check_types
 
 
 @dataclass(kw_only=True, frozen=True)

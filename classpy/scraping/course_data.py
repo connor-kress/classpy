@@ -21,8 +21,7 @@ from ..parsing import (
     parse_class_dates,
     parse_course_reqs,
 )
-from ..course import Course
-from ..class_ import Class
+from ..core import Course, Class
 from ..locations import ClassRoom
 from ..data import get_building
 from ..utils import check_types

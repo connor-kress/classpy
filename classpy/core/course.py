@@ -3,7 +3,7 @@ from typing import Optional, Self
 
 from .course_req import CourseReq
 from .class_ import Class
-from .utils import check_types
+from ..utils import check_types
 
 
 @dataclass(kw_only=True, frozen=True)

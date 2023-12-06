@@ -1,7 +1,7 @@
 from asyncio import Task
 from typing import Optional, Self
 
-from .utils import check_types
+from ..utils import check_types
 from .textbook_info import TextbookInfo
 
 

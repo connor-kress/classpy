@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional, Self
 
-from .locations import ClassRoom
-from .utils import check_types
+from ..locations import ClassRoom
+from ..utils import check_types
 from .textbook_collection import TextbookCollection
 
 

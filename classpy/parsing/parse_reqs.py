@@ -1,7 +1,7 @@
 from typing import Optional
 import regex as re
 
-from ..course_req import CourseReq
+from ..core import CourseReq
 
 from ..utils import (
     BooleanExpr,

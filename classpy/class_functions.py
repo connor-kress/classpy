@@ -1,5 +1,4 @@
-from .course import Course
-from .class_ import Class
+from .core import Course, Class
 
 CLASS_COURSE_DICT = dict[Class, Course]()
 

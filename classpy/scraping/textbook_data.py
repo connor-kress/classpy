@@ -1,12 +1,13 @@
 import asyncio
 from collections.abc import Awaitable
 from playwright.async_api import BrowserContext
-import playwright
 from typing import Literal, Optional
 
-from ..textbook_collection import TextbookCollection
-from ..textbook_info import TextbookInfo
-from ..textbook import Textbook
+from ..core import (
+    Textbook,
+    TextbookInfo,
+    TextbookCollection,
+)
 
 type _ReqLevel = Literal['required', 'optional', 'recommended']
 _req_levels = ('required', 'optional', 'recommended')
