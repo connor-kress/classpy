@@ -14,6 +14,7 @@ from .constants import (
 from .paths import (
     BUS_STOPS_PATH,
     BUILDINGS_PATH,
+    COURSE_TITLES_PATH,
     SS_PATH,
 )
 
@@ -29,5 +30,6 @@ __all__ = (
     'SUMMER_PERIOD_DICT',
     'BUS_STOPS_PATH',
     'BUILDINGS_PATH',
+    'COURSE_TITLES_PATH',
     'SS_PATH',
 )
