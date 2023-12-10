@@ -3,6 +3,7 @@ from .config import (
     DEFAULT_TERM,
     DEFAULT_TERM_TYPE,
     MAX_TIMEOUT,
+    EDGE_DRIVER_PATH,
 )
 from .constants import (
     SOC_BASE,
@@ -17,6 +18,9 @@ from .paths import (
     BUS_STOPS_PATH,
     BUILDINGS_PATH,
     COURSE_TITLES_PATH,
+    COURSE_WITH_SCORE_PATH,
+    PROFESSORS_PATH,
+    PROFESSORS_CLEANED_PATH,
     SS_PATH,
 )
 
@@ -25,6 +29,7 @@ __all__ = (
     'DEFAULT_TERM',
     'DEFAULT_TERM_TYPE',
     'MAX_TIMEOUT',
+    'EDGE_DRIVER_PATH',
     'SOC_BASE',
     'WEEK_DAYS',
     'FALL_SPRING_PERIODS',
@@ -35,5 +40,8 @@ __all__ = (
     'BUS_STOPS_PATH',
     'BUILDINGS_PATH',
     'COURSE_TITLES_PATH',
+    'COURSE_WITH_SCORE_PATH',
+    'PROFESSORS_PATH',
+    'PROFESSORS_CLEANED_PATH',
     'SS_PATH',
 )
