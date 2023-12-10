@@ -1,12 +1,12 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, Self
 
 from .course_req import CourseReq
 from .class_ import Class
-from .utils import check_types
+from ..utils import check_types
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class Course:
     number: str
     title: str
@@ -14,10 +14,10 @@ class Course:
     requirements: CourseReq
     fees: Optional[float]
     EEP_eligable: bool
-    gen_ed: list[str]
+    gen_ed: tuple[str, ...]
     credits: int
     department: str
-    available_classes: list[Class]
+    available_classes: tuple[Class, ...]
 
     def __post_init__(self) -> None:
         check_types(
@@ -27,8 +27,14 @@ class Course:
             (self.requirements, CourseReq),
             (self.fees, Optional[float]),
             (self.EEP_eligable, bool),
-            (self.gen_ed, list),
+            (self.gen_ed, tuple),
             (self.credits, int),
             (self.department, str),
-            (self.available_classes, list),
+            (self.available_classes, tuple),
         )
+    
+    def __eq__(self, other: Self):
+        if not isinstance(other, self.__class__):
+            raise TypeError("`Class`' can only be compared "
+                            "with other `Class` instances.")
+        return hash(self) == hash(other)

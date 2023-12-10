@@ -1,24 +1,29 @@
 from typing import Optional, Self
 from dataclasses import dataclass
 
-from .utils import check_types
+from ..utils import check_types
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, frozen=True)
 class TextbookInfo:
     title: Optional[str]
-    author: Optional[str]
     isbn: Optional[str]
+    cover: Optional[str]
+    author: Optional[str]
+    edition: Optional[str]
+    copyright: Optional[str]
+    publisher: Optional[str]
 
     def __post_init__(self) -> None:
         check_types(
             (self.title, Optional[str]),
-            (self.author, Optional[str]),
             (self.isbn, Optional[str]),
+            (self.cover, Optional[str]),
+            (self.author, Optional[str]),
+            (self.edition, Optional[str]),
+            (self.copyright, Optional[str]),
+            (self.publisher, Optional[str]),
         )
-
-    def __hash__(self) -> int:
-        return hash((self.title, self.author, self.isbn))
     
     def __eq__(self, other: Self) -> bool:
         if not isinstance(other, self.__class__):

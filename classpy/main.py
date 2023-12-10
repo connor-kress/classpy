@@ -6,19 +6,17 @@ from classpy import *
 
 
 async def main() -> None:
-    pprint = pprint.PrettyPrinter(depth=5).pprint
+    print = pprint.PrettyPrinter(depth=5).pprint
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
+        ctx = await browser.new_context()
+        
+        builder = ScheduleBuider()
+        print(await builder._query_class(ctx))
+        # course = (await course_query(title='Programming fundamentals 2'))[0]
+        # print(course)
 
-        # pprint(await course_query(browser, course_code='MAD2502'))
-        pprint(await course_query(browser, course_code='COP'))
-        # pprint(await course_query(browser, course_code='MAC'))
-        # pprint(await course_query(browser, course_title='Programming Fundamentals 2'))
-        # pprint(await course_query(browser, course_code='COP35'))
-        # pprint(await course_query(browser, course_code='MAD'))
-        # pprint(await course_query(browser, course_code='MAD', course_title='Computational'))
-        # pprint(await course_query(browser, term='2238', course_code='PHY2020'))
-
+        await ctx.close()
         await browser.close()
 
 

@@ -1,25 +1,29 @@
+from .core import *
 from .data import *
+from .locations import *
 from .parsing import *
 from .scraping import *
 from .utils import *
 
-from .course import Course
-from .course_req import CourseReq
-from .class_ import Class
-from .classroom import ClassRoom
-from .textbook import Textbook
-from .textbook_info import TextbookInfo
+# this is to avoid some naming conflicts
+from .locations import __all__\
+    as locations__all__
+
+from .class_functions import (
+    add_class_course_binding,
+    get_course_of,
+)
+from .schedule_builder import ScheduleBuider
 
 __all__ = (
+    *core.__all__,
     *data.__all__ ,
+    *locations__all__,
     *parsing.__all__,
     *scraping.__all__ ,
     *utils.__all__ ,
 
-    'Course',
-    'CourseReq',
-    'Class',
-    'ClassRoom',
-    'Textbook',
-    'TextbookInfo',
+    'add_class_course_binding',
+    'get_course_of',
+    'ScheduleBuider',
 )
