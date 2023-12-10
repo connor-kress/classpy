@@ -164,9 +164,10 @@ async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
     classrooms, locations = await _scrape_locations(location_locators)
     instructors = tuple(await box2.locator('//div[1]/div[2]/div/p')\
                                   .all_text_contents())
+    class_type = await box2.locator('//div[2]/div[2]/div/div[1]')\
+                            .first.text_content()
     is_online: bool
-    match await box2.locator('//div[2]/div[2]/div/div[1]')\
-                    .first.text_content():
+    match class_type:
         case 'Online (100%)': is_online = True
         case 'Online (80-99%)': is_online = True
         case 'Primarily Classroom': is_online = False
@@ -188,6 +189,7 @@ async def _scrape_class(ctx: BrowserContext, class_: Locator) -> Class:
         number=number,
         instructors=instructors,
         is_online=is_online,
+        type_=class_type,
         final_exam_time=final_exam_time,
         class_dates=class_dates,
         textbooks=course_textbooks,

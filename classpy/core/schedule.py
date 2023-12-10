@@ -4,6 +4,7 @@ from ..data import (
     WEEK_DAYS,
     FALL_SPRING_PERIODS,
     SUMMER_PERIODS,
+    DEFAULT_TERM_TYPE,
 )
 from ..locations import Coords, distance
 from .class_ import Class
@@ -21,7 +22,7 @@ def _get_coord_data(class_: Class) -> CoordData:
 
 
 class Schedule:
-    def __init__(self, term_type: TermType = 'Fall') -> None:
+    def __init__(self, term_type: TermType = DEFAULT_TERM_TYPE) -> None:
         """Instantiates a blank schedule with a size corresponding
         to the `term_type`.
         """

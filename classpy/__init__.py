@@ -13,6 +13,7 @@ from .class_functions import (
     add_class_course_binding,
     get_course_of,
 )
+from .schedule_builder import ScheduleBuider
 
 __all__ = (
     *core.__all__,
@@ -24,4 +25,5 @@ __all__ = (
 
     'add_class_course_binding',
     'get_course_of',
+    'ScheduleBuider',
 )

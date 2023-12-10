@@ -4,6 +4,7 @@ from .boolean import (
     BooleanAnd,
     BooleanOr,
 )
+from .clear import clear_screen
 from .haversine import haversine
 from .type_checking import check_types
 
@@ -12,6 +13,7 @@ __all__ = (
     'BooleanToken',
     'BooleanAnd',
     'BooleanOr',
+    'clear_screen',
     'haversine',
     'check_types',
 )
