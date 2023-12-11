@@ -4,6 +4,7 @@ from .config import (
     DEFAULT_TERM_TYPE,
     MAX_TIMEOUT,
     EDGE_DRIVER_PATH,
+    SCHEDULE_COLUMN_WIDTH,
 )
 from .constants import (
     SOC_BASE,
@@ -30,6 +31,8 @@ __all__ = (
     'DEFAULT_TERM_TYPE',
     'MAX_TIMEOUT',
     'EDGE_DRIVER_PATH',
+    'SCHEDULE_COLUMN_WIDTH',
+
     'SOC_BASE',
     'WEEK_DAYS',
     'FALL_SPRING_PERIODS',
@@ -37,6 +40,7 @@ __all__ = (
     'DAY_OF_WEEK_DICT',
     'FALL_SPRING_PERIOD_DICT',
     'SUMMER_PERIOD_DICT',
+    
     'BUS_STOPS_PATH',
     'BUILDINGS_PATH',
     'COURSE_TITLES_PATH',

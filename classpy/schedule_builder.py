@@ -1,7 +1,11 @@
 from playwright.async_api import BrowserContext
 from typing import Optional
 
-from .data import DEFAULT_TERM_TYPE
+from .data import (
+    DEFAULT_TERM_TYPE,
+    DAY_OF_WEEK_DICT,
+)
+from .class_functions import get_course_of
 from .core.schedule import TermType
 from .core import (
     Class,
@@ -60,15 +64,22 @@ def _get_course_selection(courses: tuple[Course]) -> Optional[Course]:
 class ScheduleBuider:
     def __init__(self, term_type: TermType = DEFAULT_TERM_TYPE) -> None:
         self.schedule = Schedule(term_type)
-        self.classes = list[Class]()
+        self.classes = set[Class]()
+    
+    def _total_credits(self) -> int:
+        """Returns the total number of credit hours of the current schedule."""
+        return sum(get_course_of(class_).credits for class_ in self.classes)
 
     def _get_class_selection(self, course: Course) -> Optional[Class]:
+        """Returns a user `Class` selection from a `Course`.
+        Returns `None` if no class is chosen.
+        """
         classes = course.available_classes
         available_classes = sum(self.schedule.fits(class_)
                                 for class_ in classes)
         idx_to_class = dict[int, Class]()
         if available_classes == 1:
-            classes_str = f'{available_classes} available class:'
+            classes_str = f'{available_classes} available class:\n'
         else:
             classes_str = f'{available_classes} available classes:\n'
         i = 1
@@ -114,6 +125,9 @@ class ScheduleBuider:
         
     
     async def _query_class(self, ctx: BrowserContext) -> Optional[Class]:
+        """Returns a user `Class` selection from the UF Schedule of Courses.
+        Returns `None` if no class is chosen.
+        """
         results = await _make_query(ctx)
         if results is None:
             return None
@@ -125,3 +139,21 @@ class ScheduleBuider:
             class_ = self._get_class_selection(course)
             if class_ is not None:
                 return class_
+    
+    async def build(self, ctx: BrowserContext) -> Schedule:
+        """Builds a `Schedule` using user terminal queries to the
+        UF Schedule of Courses using the `course_query(...)` function.
+        """
+        while True:
+            class_ = await self._query_class(ctx)
+            if class_ is not None:
+                self.schedule.add(class_)
+                self.classes.add(class_)
+            print(self.schedule)
+            print(f'Total credits: {self._total_credits()}')
+            if input('Type "exit" to exit, else hit enter: ')\
+                .strip().lower() == 'exit':
+                break
+            clear_screen()
+        clear_screen()
+        return self.schedule

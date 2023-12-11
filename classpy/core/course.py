@@ -14,6 +14,7 @@ class Course:
     requirements: CourseReq
     fees: Optional[float]
     EEP_eligable: bool
+    honors: bool
     gen_ed: tuple[str, ...]
     credits: int
     department: str
@@ -27,6 +28,7 @@ class Course:
             (self.requirements, CourseReq),
             (self.fees, Optional[float]),
             (self.EEP_eligable, bool),
+            (self.honors, bool),
             (self.gen_ed, tuple),
             (self.credits, int),
             (self.department, str),

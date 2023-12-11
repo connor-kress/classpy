@@ -141,6 +141,7 @@ async def _scrape_course(ctx: BrowserContext, course: Locator) -> Course:
         fees=offset_data['course_fees'],
         EEP_eligable=offset_data['EEP_eligable'],
         gen_ed=offset_data['gen_ed'],
+        honors=offset_data['honors'],
         credits=offset_data['credits'],
         department=offset_data['department'],
         available_classes=classes,
@@ -206,6 +207,7 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
                             .all_text_contents()
     course_fees = None
     EEP_eligable = False
+    honors = False
     gen_ed = list[str]()
     for additional in additionals:
         if additional == 'EEP Eligible':
@@ -214,6 +216,8 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
             course_fees = float(additional.removeprefix("Add'l Course Fees: $"))
         elif 'Gen Ed' in additional:
             gen_ed.append(additional.removeprefix('Gen Ed: '))
+        elif 'Honors' in additional:
+            honors = True
         else:
             raise Exception(f'"{additional}" additional case not handled.')
     gen_ed = tuple(gen_ed)
@@ -227,6 +231,7 @@ async def _scrape_course_class_offset(first_class: Locator) -> dict[str, Any]:
         'course_fees': course_fees,
         'EEP_eligable': EEP_eligable,
         'gen_ed': gen_ed,
+        'honors': honors,
         'credits': credits,
         'department': department,
     }
