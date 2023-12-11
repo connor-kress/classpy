@@ -1,4 +1,7 @@
-from playwright.async_api import BrowserContext
+from playwright.async_api import (
+    async_playwright,
+    BrowserContext,
+)
 from typing import Optional
 
 from .data import (
@@ -140,9 +143,10 @@ class ScheduleBuider:
             if class_ is not None:
                 return class_
     
-    async def build(self, ctx: BrowserContext) -> Schedule:
-        """Builds a `Schedule` using user terminal queries to the
-        UF Schedule of Courses using the `course_query(...)` function.
+    async def build_raw(self, ctx: BrowserContext) -> Schedule:
+        """The same as `ScheduleBuider.build()` but requires a
+        passed BrowserContext to perform the scraping and is called
+        from a `ScheduleBuider` instance.
         """
         while True:
             class_ = await self._query_class(ctx)
@@ -157,3 +161,17 @@ class ScheduleBuider:
             clear_screen()
         clear_screen()
         return self.schedule
+    
+    @classmethod
+    async def build(cls) -> Schedule:
+        """Builds a `Schedule` using user terminal queries to the
+        UF Schedule of Courses using the `course_query(...)` function.
+        """
+        builder = ScheduleBuider()
+        async with async_playwright() as playwright:
+            browser = await playwright.chromium.launch()
+            ctx = await browser.new_context()
+            schedule = await builder.build_raw(ctx)
+            await ctx.close()
+            await browser.close()
+            return schedule
