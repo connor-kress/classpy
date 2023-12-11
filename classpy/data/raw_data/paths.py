@@ -10,5 +10,5 @@ COURSE_WITH_SCORE_PATH = os.path.join(__ROOT, 'course_with_score.csv')
 PROFESSORS_PATH = os.path.join(__ROOT, 'professors.csv')
 PROFESSORS_CLEANED_PATH = os.path.join(__ROOT, 'professors_cleaned.csv')
 
-SS_PATH = os.path.join(__ROOT, '..', 'images')
-SS_PATH = os.path.normpath(SS_PATH) + os.sep
+SS_PATH = os.path.join(__ROOT, 'screenshots') + os.sep
+EVALS_DATA_PATH = SS_PATH = os.path.join(__ROOT, 'evals_data')

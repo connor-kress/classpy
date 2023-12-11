@@ -9,9 +9,15 @@ This is a basic UF API and schedule builder for UF students written in Python. T
 ### Installing Prerequisites
 ```
 $ pip install playwright
+$ pip install pyautogui
+$ pip install webdriver_manager
+$ pip install pillow
 $ pip install bs4
 $ pip install pandas
 $ pip install selenium
+$ pip install requests
+
+$ playwright install
 ```
 ### Installing ClassPy
 ```

@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 playwright~=1.40.0
 selenium~=4.16.0
 pandas~=2.1.4
 bs4~=0.0.1
+=======
+playwright
+pillow
+selenium
+pyautogui
+webdriver_manager
+pandas
+requests
+bs4
+>>>>>>> 87b0b99 (Integrated and organized gator evals scraping.)
 -e .
 
 classpy~=0.0.1

@@ -8,6 +8,9 @@ from .config import (
 )
 from .constants import (
     SOC_BASE,
+    GATOR_EVALS_URL,
+    INSTRUCTOR_ELEMENT_ID,
+    EARTH_RADIUS_KM,
     WEEK_DAYS,
     FALL_SPRING_PERIODS,
     SUMMER_PERIODS,
@@ -23,6 +26,7 @@ from .paths import (
     PROFESSORS_PATH,
     PROFESSORS_CLEANED_PATH,
     SS_PATH,
+    EVALS_DATA_PATH,
 )
 
 __all__ = (
@@ -34,13 +38,16 @@ __all__ = (
     'SCHEDULE_COLUMN_WIDTH',
 
     'SOC_BASE',
+    'GATOR_EVALS_URL',
+    'INSTRUCTOR_ELEMENT_ID',
+    'EARTH_RADIUS_KM',
     'WEEK_DAYS',
     'FALL_SPRING_PERIODS',
     'SUMMER_PERIODS',
     'DAY_OF_WEEK_DICT',
     'FALL_SPRING_PERIOD_DICT',
     'SUMMER_PERIOD_DICT',
-    
+
     'BUS_STOPS_PATH',
     'BUILDINGS_PATH',
     'COURSE_TITLES_PATH',
@@ -48,4 +55,5 @@ __all__ = (
     'PROFESSORS_PATH',
     'PROFESSORS_CLEANED_PATH',
     'SS_PATH',
+    'EVALS_DATA_PATH',
 )

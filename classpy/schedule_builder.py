@@ -6,7 +6,6 @@ from typing import Optional
 
 from .data import (
     DEFAULT_TERM_TYPE,
-    DAY_OF_WEEK_DICT,
 )
 from .class_functions import get_course_of
 from .core.schedule import TermType
@@ -155,6 +154,7 @@ class ScheduleBuider:
                 self.classes.add(class_)
             print(self.schedule)
             print(f'Total credits: {self._total_credits()}')
+            print(f'Total distance: {self.schedule.total_distance():.3f} km')
             if input('Type "exit" to exit, else hit enter: ')\
                 .strip().lower() == 'exit':
                 break

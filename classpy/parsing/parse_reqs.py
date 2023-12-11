@@ -1,5 +1,5 @@
 from typing import Optional
-import regex as re
+import re
 
 from ..core import CourseReq
 

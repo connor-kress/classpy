@@ -1,6 +1,7 @@
 import requests
 import os
 from bs4 import BeautifulSoup
+from typing import Optional
 
 # dynamically loaded, use selenium
 from selenium import webdriver
@@ -8,17 +9,16 @@ from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 
 
-def search_professor(name: str, driver_path: os.PathLike):
+def search_professor(
+    name: str,
+    driver_path: os.PathLike,
+) -> Optional[list[dict[str, str]]]:
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--disable-gpu')  # needed for Windows
 
     url = "https://www.ratemyprofessors.com/search/professors/1100"
     prof_url = "https://www.ratemyprofessors.com/professor/"
-
-    # service = Service(edge_driver_path)
-    #
-    # driver = webdriver.Edge(service=service)
 
     service = Service(driver_path)
     driver = webdriver.Edge(service=service, options=options)
@@ -27,25 +27,22 @@ def search_professor(name: str, driver_path: os.PathLike):
     search_url = f"{url}?q={encoded_name}"
     driver.get(search_url)
 
-    # response = requests.get(search_url)
     soup = BeautifulSoup(driver.page_source, "html.parser")
 
-    professors_data = []
-
     # halt if no prof found at this name
-    no_results_name = soup.find('div',class_ = 'NoResultsFoundArea__NoResultsFoundHeader-mju9e6-1')
+    no_results_name = soup.find('div', class_='NoResultsFoundArea__NoResultsFoundHeader-mju9e6-1')
     no_results_uf = soup.find(string="No professors with ")
     if no_results_name or no_results_uf:
         return None
 
+    professors_data = []
     # the outer site is not uptodate, extract prof id to scrape each prof site
     for TeacherCard in soup.find_all("a", class_="TeacherCard__StyledTeacherCard-syjs0d-0"):
         # href attribute for id
-        href_value =TeacherCard['href']
+        href_value = TeacherCard['href']
         # extract professor id
         professor_id = href_value.split('/')[-1]
 
-        # scrape professor site
         professor_url = f"{prof_url}{professor_id}"
         driver.get(professor_url)
         professor_site = BeautifulSoup(driver.page_source, "html.parser")
@@ -62,8 +59,6 @@ def search_professor(name: str, driver_path: os.PathLike):
         if len(num_rating) == 0: # no rating exist
             num_rating = 0
 
-        # same class name, could be None
-        # Initialize default values
         would_take_again = "NA"
         level_of_difficulty = "NA"
 
@@ -92,17 +87,16 @@ def search_professor(name: str, driver_path: os.PathLike):
 
         # update for each prof
         professor_info = {
-            'Instructor' : prof_name,
-            'Department' : department,
-            'University' : university,
+            'Instructor': prof_name,
+            'Department': department,
+            'University': university,
             'rating_value': prof_rating,
             'num_ratings': num_rating,
             'would_take_again': would_take_again,
-            'level_of_difficulty': level_of_difficulty
+            'level_of_difficulty': level_of_difficulty,
         }
 
         professors_data.append(professor_info)
-
-
+    
     driver.close()
     return professors_data

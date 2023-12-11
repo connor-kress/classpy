@@ -6,6 +6,12 @@ from .course_data import (
     _scrape_course_class_offset,
     _scrape_locations,
 )
+from .gator_evals_scraper import (
+    scrape_gator_evals,
+    _sanitize_filename,
+    _crop_images_in_folder,
+    _compress_images_in_folder,
+)
 from .merge_csv import (
     merge_score_data,
     _find_matching_score,
@@ -32,6 +38,11 @@ __all__ = (
     '_scrape_course',
     '_scrape_course_class_offset',
     '_scrape_locations',
+
+    'scrape_gator_evals',
+    '_sanitize_filename',
+    '_crop_images_in_folder',
+    '_compress_images_in_folder',
 
     'merge_score_data',
     '_find_matching_score',
