@@ -1,5 +1,9 @@
-playwright
-selenium
-pandas
-bs4
+playwright~=1.40.0
+selenium~=4.16.0
+pandas~=2.1.4
+bs4~=0.0.1
 -e .
+
+classpy~=0.0.1
+requests~=2.31.0
+beautifulsoup4~=4.12.2
