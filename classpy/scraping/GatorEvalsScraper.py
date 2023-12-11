@@ -132,7 +132,7 @@ def compress_images_in_folder(source_folder, dest_folder, quality=60):
         # Check if the file is an image
         if file_path.lower().endswith(('.png', '.jpg', '.jpeg')):
             with Image.open(file_path) as img:
-                # Convert the image to RGB mode (this step is necessary for .png files to be saved as .jpeg)
+                # Convert the image to RGB mode
                 if img.mode in ("RGBA", "P"):
                     img = img.convert("RGB")
 
