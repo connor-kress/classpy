@@ -13,6 +13,7 @@ from .class_functions import (
     add_class_course_binding,
     get_course_of,
 )
+from .gator_evals_searcher import gator_evals_searcher
 from .schedule_builder import ScheduleBuider
 
 __all__ = (
@@ -25,5 +26,6 @@ __all__ = (
 
     'add_class_course_binding',
     'get_course_of',
+    'gator_evals_searcher',
     'ScheduleBuider',
 )
