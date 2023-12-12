@@ -85,7 +85,8 @@ class Schedule:
         for day in coord_data:
             current: Optional[Coords] = None
             for coords in day:
-                if coords is None or coords == current:
+                if coords is None or current is not None \
+                    and coords == current:
                     continue
                 if current is not None:
                     acc += distance(current, coords)
