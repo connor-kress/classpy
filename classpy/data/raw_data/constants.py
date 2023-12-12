@@ -6,8 +6,6 @@ GATOR_EVALS_URL = 'https://public.tableau.com/views/GatorEvalsSpring2023Three'\
 INSTRUCTOR_ELEMENT_ID = 'FI_sqlproxy.04pjtia0xer5jm1ctta0u0ec5l1n,none:INSTRU'\
                         'CTOR_NAME:nk16126187992227925297_15952188591581136529_{}'
 
-EARTH_RADIUS_KM = 6378
-
 WEEK_DAYS = 6
 FALL_SPRING_PERIODS = 14
 SUMMER_PERIODS = 9

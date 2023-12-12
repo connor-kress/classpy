@@ -1,6 +1,6 @@
 from math import radians, asin, sin, cos, sqrt
 
-from ..data.raw_data import EARTH_RADIUS_KM
+EARTH_RADIUS_KM = 6378
 
 
 def haversine(lat0: float, lon0: float, lat1: float, lon1: float) -> float:
