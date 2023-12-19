@@ -7,6 +7,7 @@ This is a basic UF API and schedule builder for UF students written in Python. T
 ## Installation
 <hr>
 ### Installing Prerequisites
+
 ```
 $ pip install playwright
 $ pip install pyautogui
